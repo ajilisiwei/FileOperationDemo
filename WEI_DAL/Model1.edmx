@@ -1,0 +1,2835 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="billiardModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="BallTables">
+          <Key>
+            <PropertyRef Name="Gid" />
+          </Key>
+          <Property Name="MerId" Type="int" />
+          <Property Name="Type" Type="tinyint" />
+          <Property Name="Number" Type="nvarchar" MaxLength="50" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="RateByHouer" Type="int" />
+          <Property Name="Status" Type="tinyint" />
+          <Property Name="PlayTime" Type="int" />
+          <Property Name="StartTime" Type="datetime" />
+          <Property Name="Remark" Type="nvarchar" MaxLength="200" />
+          <Property Name="CreatedOn" Type="datetime" />
+          <Property Name="CreatedBy" Type="nvarchar" MaxLength="50" />
+          <Property Name="ModifiedOn" Type="datetime" />
+          <Property Name="ModifiedBy" Type="nvarchar" MaxLength="50" />
+          <Property Name="IsDel" Type="int" Nullable="false" />
+          <Property Name="Gid" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="DataSources" Type="int" />
+          <Property Name="ReId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="BatId" Type="uniqueidentifier" Nullable="false" />
+        </EntityType>
+        <EntityType Name="BallTableType">
+          <Key>
+            <PropertyRef Name="Gid" />
+          </Key>
+          <Property Name="MerId" Type="int" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="CreatedOn" Type="datetime" />
+          <Property Name="CreatedBy" Type="nvarchar" MaxLength="50" />
+          <Property Name="ModifiedOn" Type="datetime" />
+          <Property Name="ModifiedBy" Type="nvarchar" MaxLength="50" />
+          <Property Name="IsDel" Type="int" Nullable="false" />
+          <Property Name="Gid" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Rmb" Type="money" Nullable="false" />
+          <Property Name="TeRmb" Type="money" Nullable="false" />
+          <Property Name="TeBi" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Bento">
+          <Key>
+            <PropertyRef Name="BentoId" />
+          </Key>
+          <Property Name="BentoId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="OrId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="TranNo" Type="bigint" Nullable="false" />
+          <Property Name="BentoAmount" Type="decimal" Precision="10" Scale="2" Nullable="false" />
+          <Property Name="CreatedOn" Type="datetime" />
+          <Property Name="CreatedBy" Type="varchar" MaxLength="30" />
+        </EntityType>
+        <EntityType Name="BillardMast">
+          <Key>
+            <PropertyRef Name="Gid" />
+          </Key>
+          <Property Name="MerId" Type="int" />
+          <Property Name="MastNo" Type="nvarchar" MaxLength="20" />
+          <Property Name="MastName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="MastStatus" Type="int" Nullable="false" />
+          <Property Name="MastRate" Type="float" Nullable="false" />
+          <Property Name="MastGender" Type="int" Nullable="false" />
+          <Property Name="CreatedOn" Type="datetime" />
+          <Property Name="CreatedBy" Type="nvarchar" MaxLength="50" />
+          <Property Name="ModifiedOn" Type="datetime" />
+          <Property Name="ModifiedBy" Type="nvarchar" MaxLength="50" />
+          <Property Name="IsDel" Type="int" Nullable="false" />
+          <Property Name="Gid" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="DataSources" Type="int" />
+          <Property Name="BtId" Type="uniqueidentifier" Nullable="false" />
+        </EntityType>
+        <EntityType Name="BilliardsBaby">
+          <Key>
+            <PropertyRef Name="BabyId" />
+          </Key>
+          <Property Name="BabyId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="MerId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="FullPrice" Type="decimal" Precision="10" Scale="2" Nullable="false" />
+          <Property Name="FullScale" Type="decimal" Precision="5" Scale="2" Nullable="false" />
+          <Property Name="HalfPrice" Type="decimal" Precision="10" Scale="2" Nullable="false" />
+          <Property Name="HalfScale" Type="decimal" Precision="5" Scale="2" Nullable="false" />
+          <Property Name="IsDel" Type="bit" Nullable="false" />
+          <Property Name="CreatedOn" Type="datetime" />
+          <Property Name="CreatedBy" Type="varchar" MaxLength="30" />
+          <Property Name="ModifiedOn" Type="datetime" />
+          <Property Name="ModifiedBy" Type="varchar" MaxLength="30" />
+        </EntityType>
+        <EntityType Name="Buy">
+          <Key>
+            <PropertyRef Name="Gid" />
+          </Key>
+          <Property Name="OrId" Type="uniqueidentifier" />
+          <Property Name="Code" Type="nvarchar" MaxLength="50" />
+          <Property Name="BuyPrice" Type="float" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="Number" Type="int" />
+          <Property Name="Price" Type="float" />
+          <Property Name="Pay" Type="float" />
+          <Property Name="Amounts" Type="float" />
+          <Property Name="TeBi" Type="int" />
+          <Property Name="CreatedOn" Type="datetime" />
+          <Property Name="CreatedBy" Type="nvarchar" MaxLength="50" />
+          <Property Name="ModifiedOn" Type="datetime" />
+          <Property Name="ModifiedBy" Type="nvarchar" MaxLength="50" />
+          <Property Name="TranNo" Type="bigint" />
+          <Property Name="Gid" Type="uniqueidentifier" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Discount">
+          <Key>
+            <PropertyRef Name="Gid" />
+          </Key>
+          <Property Name="StartTime" Type="datetime" />
+          <Property Name="EndTime" Type="datetime" />
+          <Property Name="CreatedOn" Type="datetime" />
+          <Property Name="CreatedBy" Type="nvarchar" MaxLength="50" />
+          <Property Name="ModifiedOn" Type="datetime" />
+          <Property Name="ModifiedBy" Type="nvarchar" MaxLength="50" />
+          <Property Name="IsDel" Type="int" Nullable="false" />
+          <Property Name="Gid" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Weekly" Type="varchar" MaxLength="13" />
+          <Property Name="WeekOrHoliday" Type="int" Nullable="false" />
+          <Property Name="BatId" Type="uniqueidentifier" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Goods">
+          <Key>
+            <PropertyRef Name="Gid" />
+          </Key>
+          <Property Name="MerId" Type="int" />
+          <Property Name="Number" Type="nvarchar" MaxLength="50" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="BuyOn" Type="datetime" />
+          <Property Name="ProduceOn" Type="datetime" />
+          <Property Name="KeepDay" Type="int" />
+          <Property Name="BuyPrice" Type="float" />
+          <Property Name="SellPrice" Type="float" />
+          <Property Name="State" Type="tinyint" />
+          <Property Name="Remark" Type="nvarchar" MaxLength="50" />
+          <Property Name="CreatedOn" Type="datetime" />
+          <Property Name="CreatedBy" Type="nvarchar" MaxLength="50" />
+          <Property Name="ModifiedOn" Type="datetime" />
+          <Property Name="ModifiedBy" Type="nvarchar" MaxLength="50" />
+          <Property Name="TeBi" Type="int" />
+          <Property Name="Rmb" Type="float" />
+          <Property Name="OrderBy" Type="int" />
+          <Property Name="IsDel" Type="int" Nullable="false" />
+          <Property Name="Gid" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="TypeId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Inventory" Type="int" Nullable="false" />
+          <Property Name="ShortCode" Type="nvarchar" MaxLength="10" />
+        </EntityType>
+        <EntityType Name="LightControl">
+          <Key>
+            <PropertyRef Name="LcId" />
+          </Key>
+          <Property Name="LcId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="MerId" Type="int" />
+          <Property Name="Status" Type="int" />
+          <Property Name="MachineNumber" Type="int" />
+          <Property Name="RelayNumber" Type="bit" />
+          <Property Name="Remark" Type="nvarchar" MaxLength="200" />
+          <Property Name="CreatedOn" Type="datetime" />
+          <Property Name="CreatedBy" Type="nvarchar" MaxLength="50" />
+          <Property Name="ModifiedOn" Type="datetime" />
+          <Property Name="ModifiedBy" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="LoginLog">
+          <Key>
+            <PropertyRef Name="UserName" />
+            <PropertyRef Name="LogOnTime" />
+            <PropertyRef Name="MerId" />
+          </Key>
+          <Property Name="UserName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="LogOnTime" Type="datetime" Nullable="false" />
+          <Property Name="LogOutTime" Type="datetime" />
+          <Property Name="MerId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Logs">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Merid" Type="int" Nullable="false" />
+          <Property Name="ExceptionLevel" Type="nvarchar" MaxLength="20" />
+          <Property Name="ExceptionClass" Type="nvarchar" MaxLength="50" />
+          <Property Name="ClassName" Type="nvarchar" MaxLength="50" />
+          <Property Name="MethodName" Type="nvarchar" MaxLength="200" />
+          <Property Name="MethodFunc" Type="nvarchar" MaxLength="500" />
+          <Property Name="MethodParams" Type="nvarchar" MaxLength="1000" />
+          <Property Name="MethodReturn" Type="nvarchar" MaxLength="1000" />
+          <Property Name="Ex" Type="nvarchar" MaxLength="2000" />
+          <Property Name="Remark" Type="nvarchar" MaxLength="200" />
+          <Property Name="CreatedOn" Type="datetime" />
+          <Property Name="CreatedBy" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Machine">
+          <Key>
+            <PropertyRef Name="MaId" />
+          </Key>
+          <Property Name="MaId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="MerId" Type="int" />
+          <Property Name="MachineName" Type="varchar" MaxLength="20" />
+          <Property Name="IP" Type="varchar" MaxLength="20" />
+          <Property Name="Port" Type="int" />
+          <Property Name="CreatedOn" Type="datetime" />
+          <Property Name="CreatedBy" Type="nvarchar" MaxLength="50" />
+          <Property Name="ModifiedOn" Type="datetime" />
+          <Property Name="ModifiedBy" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="MarginCustomer">
+          <Key>
+            <PropertyRef Name="Gid" />
+          </Key>
+          <Property Name="MerId" Type="int" />
+          <Property Name="MarginName" Type="nvarchar" MaxLength="50" />
+          <Property Name="Gender" Type="tinyint" />
+          <Property Name="Phone" Type="nvarchar" MaxLength="30" />
+          <Property Name="TotalMargin" Type="float" />
+          <Property Name="Remark" Type="nvarchar" MaxLength="200" />
+          <Property Name="CreatedOn" Type="datetime" />
+          <Property Name="CreatedBy" Type="nvarchar" MaxLength="50" />
+          <Property Name="ModifiedOn" Type="datetime" />
+          <Property Name="ModifiedBy" Type="nvarchar" MaxLength="50" />
+          <Property Name="IsDel" Type="int" Nullable="false" />
+          <Property Name="Gid" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="DataSources" Type="int" />
+        </EntityType>
+        <EntityType Name="MemberDc">
+          <Key>
+            <PropertyRef Name="Gid" />
+          </Key>
+          <Property Name="CreatedOn" Type="datetime" />
+          <Property Name="CreatedBy" Type="nvarchar" MaxLength="50" />
+          <Property Name="ModifiedOn" Type="datetime" />
+          <Property Name="ModifiedBy" Type="nvarchar" MaxLength="50" />
+          <Property Name="IsDel" Type="int" Nullable="false" />
+          <Property Name="Gid" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="DcId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="StarHour" Type="datetime" />
+          <Property Name="EndHour" Type="datetime" />
+          <Property Name="Rmb" Type="money" Nullable="false" />
+          <Property Name="TeRmb" Type="money" Nullable="false" />
+          <Property Name="TeBi" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="MemberType">
+          <Key>
+            <PropertyRef Name="Gid" />
+          </Key>
+          <Property Name="Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="CreatedOn" Type="datetime" />
+          <Property Name="CreatedBy" Type="nvarchar" MaxLength="50" />
+          <Property Name="ModifiedOn" Type="datetime" />
+          <Property Name="ModifiedBy" Type="nvarchar" MaxLength="50" />
+          <Property Name="MerId" Type="int" />
+          <Property Name="IsDel" Type="int" Nullable="false" />
+          <Property Name="Gid" Type="uniqueidentifier" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Merchants">
+          <Key>
+            <PropertyRef Name="MerId" />
+          </Key>
+          <Property Name="MerId" Type="int" Nullable="false" />
+          <Property Name="Number" Type="nvarchar" MaxLength="50" />
+          <Property Name="MerchantsName" Type="nvarchar" MaxLength="50" />
+          <Property Name="Address" Type="nvarchar" MaxLength="50" />
+          <Property Name="Phone" Type="nvarchar" MaxLength="50" />
+          <Property Name="CreatedOn" Type="datetime" />
+          <Property Name="CreatedBy" Type="nvarchar" MaxLength="50" />
+          <Property Name="ModifiedOn" Type="datetime" />
+          <Property Name="ModifiedBy" Type="nvarchar" MaxLength="50" />
+          <Property Name="MerNumber" Type="uniqueidentifier" />
+          <Property Name="MerLogo" Type="nvarchar" MaxLength="200" />
+          <Property Name="First_Area_Id" Type="int" />
+          <Property Name="Second_Area_Id" Type="int" />
+          <Property Name="Third_Area_Id" Type="int" />
+          <Property Name="Fourth_Area_Id" Type="int" />
+          <Property Name="IsDel" Type="int" Nullable="false" />
+          <Property Name="Gid" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="MerNumberStr" Type="varchar" MaxLength="36" />
+        </EntityType>
+        <EntityType Name="Notifies">
+          <Key>
+            <PropertyRef Name="Gid" />
+          </Key>
+          <Property Name="TypeId" Type="int" Nullable="false" />
+          <Property Name="MerId" Type="int" />
+          <Property Name="TimeLength" Type="int" />
+          <Property Name="NotifyTime" Type="datetime" />
+          <Property Name="NotifyStatus" Type="int" Nullable="false" />
+          <Property Name="PhoneNo" Type="nvarchar" MaxLength="20" />
+          <Property Name="CardNo" Type="nvarchar" MaxLength="50" />
+          <Property Name="CreatedOn" Type="datetime" />
+          <Property Name="CreatedBy" Type="nvarchar" MaxLength="50" />
+          <Property Name="ModifiedOn" Type="datetime" />
+          <Property Name="ModifiedBy" Type="nvarchar" MaxLength="50" />
+          <Property Name="Gid" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="NotiContent" Type="varchar" MaxLength="50" />
+          <Property Name="BtId" Type="uniqueidentifier" Nullable="false" />
+        </EntityType>
+        <EntityType Name="O2OPayInfo">
+          <Key>
+            <PropertyRef Name="PayId" />
+          </Key>
+          <Property Name="PayId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="O2OTradeNo" Type="varchar" MaxLength="30" />
+          <Property Name="C2BTradeNo" Type="varchar" MaxLength="30" />
+          <Property Name="C2BOrderId" Type="varchar" MaxLength="30" />
+          <Property Name="IsPayCoupon" Type="int" Nullable="false" />
+          <Property Name="CreatedOn" Type="datetime" />
+          <Property Name="CreatedBy" Type="varchar" MaxLength="30" />
+          <Property Name="ModifiedOn" Type="datetime" />
+          <Property Name="ModifiedBy" Type="varchar" MaxLength="30" />
+        </EntityType>
+        <EntityType Name="OpenCardRecord">
+          <Key>
+            <PropertyRef Name="OcrId" />
+          </Key>
+          <Property Name="OcrId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="MerId" Type="int" />
+          <Property Name="TranNo" Type="bigint" />
+          <Property Name="PhoneNum" Type="varchar" MaxLength="50" />
+          <Property Name="CardNum" Type="varchar" MaxLength="50" />
+          <Property Name="DredgeStatus" Type="int" />
+          <Property Name="CardBalance" Type="float" />
+          <Property Name="CreatedOn" Type="datetime" />
+          <Property Name="CreatedBy" Type="nvarchar" MaxLength="50" />
+          <Property Name="ModifiedOn" Type="datetime" />
+          <Property Name="ModifiedBy" Type="nvarchar" MaxLength="50" />
+          <Property Name="Name" Type="varchar" MaxLength="20" />
+          <Property Name="IdCard" Type="nvarchar" MaxLength="50" />
+          <Property Name="Birthday" Type="date" />
+          <Property Name="IsDel" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="OptRecord">
+          <Key>
+            <PropertyRef Name="OpId" />
+          </Key>
+          <Property Name="OpId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="MerId" Type="int" />
+          <Property Name="OpTableName" Type="nvarchar" MaxLength="50" />
+          <Property Name="OpType" Type="int" />
+          <Property Name="IsSync" Type="bit" />
+          <Property Name="OpTableId" Type="nvarchar" MaxLength="50" />
+          <Property Name="OpTableIdType" Type="int" />
+          <Property Name="CreatedOn" Type="datetime" />
+          <Property Name="CreatedBy" Type="nvarchar" MaxLength="50" />
+          <Property Name="ModifiedOn" Type="datetime" />
+          <Property Name="ModifiedBy" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="OptRecordBak">
+          <Key>
+            <PropertyRef Name="OpId" />
+          </Key>
+          <Property Name="OpId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="MerId" Type="int" />
+          <Property Name="OpTableName" Type="varchar" MaxLength="50" />
+          <Property Name="OpType" Type="int" />
+          <Property Name="IsSync" Type="bit" />
+          <Property Name="OpTableId" Type="nvarchar" MaxLength="50" />
+          <Property Name="OpTableIdType" Type="int" />
+          <Property Name="CreatedOn" Type="datetime" />
+          <Property Name="CreatedBy" Type="nvarchar" MaxLength="50" />
+          <Property Name="ModifiedOn" Type="datetime" />
+          <Property Name="ModifiedBy" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Orders">
+          <Key>
+            <PropertyRef Name="OrId" />
+          </Key>
+          <Property Name="OrId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="MerId" Type="int" />
+          <Property Name="GoTebi" Type="int" />
+          <Property Name="CustomerType" Type="tinyint" />
+          <Property Name="Customer" Type="nvarchar" MaxLength="50" />
+          <Property Name="DiscountCoe" Type="int" />
+          <Property Name="DrinkAmounts" Type="float" />
+          <Property Name="TableNumber" Type="nvarchar" MaxLength="50" />
+          <Property Name="TableName" Type="nvarchar" MaxLength="50" />
+          <Property Name="OrderNumber" Type="nvarchar" MaxLength="50" />
+          <Property Name="FirstTime" Type="datetime" />
+          <Property Name="StartTime" Type="datetime" />
+          <Property Name="EndTime" Type="datetime" />
+          <Property Name="RateAmounts" Type="float" />
+          <Property Name="Formula" Type="nvarchar" MaxLength="200" />
+          <Property Name="DiscountAmounts" Type="float" />
+          <Property Name="AccountsAmounts" Type="float" />
+          <Property Name="PaidAmounts" Type="float" />
+          <Property Name="TotalTime" Type="int" />
+          <Property Name="Margin" Type="float" />
+          <Property Name="PaidTeBi" Type="int" />
+          <Property Name="TeBi" Type="int" />
+          <Property Name="PaidTeBall" Type="int" />
+          <Property Name="TeBall" Type="int" />
+          <Property Name="Change" Type="float" />
+          <Property Name="Status" Type="int" />
+          <Property Name="CreatedOn" Type="datetime" />
+          <Property Name="CreatedBy" Type="nvarchar" MaxLength="50" />
+          <Property Name="ModifiedOn" Type="datetime" />
+          <Property Name="ModifiedBy" Type="nvarchar" MaxLength="50" />
+          <Property Name="MarginName" Type="nvarchar" MaxLength="50" />
+          <Property Name="MasterAmmount" Type="float" />
+          <Property Name="PayType" Type="int" />
+          <Property Name="TranNo" Type="bigint" />
+          <Property Name="PayNumber" Type="nvarchar" MaxLength="50" />
+          <Property Name="PayStatus" Type="bit" />
+          <Property Name="RecCardMoney" Type="float" />
+          <Property Name="TshUId" Type="bigint" />
+          <Property Name="MobileNum" Type="varchar" MaxLength="50" />
+          <Property Name="BtId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="CloseTableTerminal" Type="int" Nullable="false" />
+          <Property Name="PayTerminal" Type="int" Nullable="false" />
+          <Property Name="CardBalance" Type="decimal" Precision="10" Scale="2" Nullable="false" />
+          <Property Name="BentoAmount" Type="decimal" Precision="10" Scale="2" Nullable="false" />
+          <Property Name="StandTime" Type="decimal" Precision="10" Scale="2" Nullable="false" />
+          <Property Name="StandAmount" Type="decimal" Precision="10" Scale="2" Nullable="false" />
+          <Property Name="ActualBillingTime" Type="datetime" />
+          <Property Name="MergeToOrder" Type="uniqueidentifier" />
+          <Property Name="MergeMessage" Type="nvarchar" MaxLength="50" />
+          <Property Name="MergeRole" Type="int" Nullable="false" />
+          <Property Name="NewOrId" Type="char" MaxLength="15" />
+          <Property Name="OldRateByHouer" Type="varchar" MaxLength="50" />
+          <Property Name="OnlinePayType" Type="int" />
+          <Property Name="MarginId" Type="uniqueidentifier" />
+        </EntityType>
+        <EntityType Name="ProductType">
+          <Key>
+            <PropertyRef Name="Gid" />
+          </Key>
+          <Property Name="TypeName" Type="varchar" MaxLength="50" />
+          <Property Name="OrderBy" Type="int" />
+          <Property Name="MerId" Type="int" />
+          <Property Name="CreatedOn" Type="datetime" />
+          <Property Name="CreatedBy" Type="nvarchar" MaxLength="50" />
+          <Property Name="ModifiedOn" Type="datetime" />
+          <Property Name="ModifiedBy" Type="nvarchar" MaxLength="50" />
+          <Property Name="Gid" Type="uniqueidentifier" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ProgramUpdateConfig">
+          <Key>
+            <PropertyRef Name="PucId" />
+          </Key>
+          <Property Name="PucId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="MerId" Type="int" Nullable="false" />
+          <Property Name="Version" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="CreatedOn" Type="datetime" />
+          <Property Name="CreatedBy" Type="nvarchar" MaxLength="50" />
+          <Property Name="ModifiedOn" Type="datetime" />
+          <Property Name="ModifiedBy" Type="nvarchar" MaxLength="50" />
+          <Property Name="IsDel" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="RechargeRecord">
+          <Key>
+            <PropertyRef Name="RecId" />
+          </Key>
+          <Property Name="RecId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="OcrId" Type="uniqueidentifier" />
+          <Property Name="TranNo" Type="bigint" />
+          <Property Name="RechargeMoney" Type="float" />
+          <Property Name="DonateMoney" Type="float" />
+          <Property Name="DonateTeBi" Type="int" />
+          <Property Name="RecBalance" Type="float" />
+          <Property Name="CreatedOn" Type="datetime" />
+          <Property Name="CreatedBy" Type="nvarchar" MaxLength="50" />
+          <Property Name="ModifiedOn" Type="datetime" />
+          <Property Name="ModifiedBy" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="RechargeSetting">
+          <Key>
+            <PropertyRef Name="ResId" />
+          </Key>
+          <Property Name="ResId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="MerId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="RechargeAmount" Type="decimal" Precision="10" Scale="2" Nullable="false" />
+          <Property Name="DonateAmount" Type="decimal" Precision="10" Scale="2" Nullable="false" />
+          <Property Name="DonateScale" Type="decimal" Precision="5" Scale="2" Nullable="false" />
+          <Property Name="CreatedOn" Type="datetime" />
+          <Property Name="CreatedBy" Type="varchar" MaxLength="30" />
+          <Property Name="ModifiedOn" Type="datetime" />
+          <Property Name="ModifiedBy" Type="varchar" MaxLength="30" />
+        </EntityType>
+        <EntityType Name="RecordAccount">
+          <Key>
+            <PropertyRef Name="ReaId" />
+          </Key>
+          <Property Name="ReaId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="MerId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="RecordType" Type="int" Nullable="false" />
+          <Property Name="RecordContent" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="IsDel" Type="bit" Nullable="false" />
+          <Property Name="CreatedOn" Type="datetime" />
+          <Property Name="CreatedBy" Type="varchar" MaxLength="30" />
+          <Property Name="ModifiedOn" Type="datetime" />
+          <Property Name="ModifiedBy" Type="varchar" MaxLength="30" />
+        </EntityType>
+        <EntityType Name="RecordAccountDetail">
+          <Key>
+            <PropertyRef Name="RadId" />
+          </Key>
+          <Property Name="RadId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="TranNo" Type="bigint" Nullable="false" />
+          <Property Name="Gid" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Amount" Type="decimal" Precision="10" Scale="2" Nullable="false" />
+          <Property Name="OweCash" Type="decimal" Precision="10" Scale="2" Nullable="false" />
+          <Property Name="ReaId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="CreatedOn" Type="datetime" />
+          <Property Name="CreatedBy" Type="varchar" MaxLength="30" />
+        </EntityType>
+        <EntityType Name="Relay">
+          <Key>
+            <PropertyRef Name="ReId" />
+          </Key>
+          <Property Name="ReId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="MaId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Status" Type="int" />
+          <Property Name="RelayNumber" Type="int" />
+          <Property Name="CreatedOn" Type="datetime" />
+          <Property Name="CreatedBy" Type="nvarchar" MaxLength="50" />
+          <Property Name="ModifiedOn" Type="datetime" />
+          <Property Name="ModifiedBy" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="RepayRecord">
+          <Key>
+            <PropertyRef Name="Gid" />
+          </Key>
+          <Property Name="MerId" Type="int" Nullable="false" />
+          <Property Name="PayDate" Type="datetime" />
+          <Property Name="RemainAccount" Type="float" />
+          <Property Name="PayAmount" Type="float" />
+          <Property Name="CreatedOn" Type="datetime" />
+          <Property Name="CreatedBy" Type="nvarchar" MaxLength="50" />
+          <Property Name="ModifiedOn" Type="datetime" />
+          <Property Name="ModifiedBy" Type="nvarchar" MaxLength="50" />
+          <Property Name="TranNo" Type="bigint" />
+          <Property Name="Gid" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="MarginId" Type="uniqueidentifier" />
+          <Property Name="UserId" Type="uniqueidentifier" />
+        </EntityType>
+        <EntityType Name="Resource">
+          <Key>
+            <PropertyRef Name="ResId" />
+          </Key>
+          <Property Name="ResId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ResCode" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="PID" Type="bigint" />
+          <Property Name="ResName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="ResUrl" Type="nvarchar" MaxLength="200" />
+          <Property Name="Rmk" Type="nvarchar" MaxLength="200" />
+          <Property Name="CreatedOn" Type="datetime" />
+          <Property Name="CreatedBy" Type="nvarchar" MaxLength="50" />
+          <Property Name="ModifiedOn" Type="datetime" />
+          <Property Name="ModifiedBy" Type="nvarchar" MaxLength="50" />
+          <Property Name="Gid" Type="uniqueidentifier" Nullable="false" />
+        </EntityType>
+        <EntityType Name="RoleAccess">
+          <Key>
+            <PropertyRef Name="RoleID" />
+            <PropertyRef Name="ResCode" />
+          </Key>
+          <Property Name="RoleID" Type="bigint" Nullable="false" />
+          <Property Name="ResCode" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="CreatedOn" Type="datetime" />
+          <Property Name="CreatedBy" Type="nvarchar" MaxLength="50" />
+          <Property Name="ModifiedOn" Type="datetime" />
+          <Property Name="ModifiedBy" Type="nvarchar" MaxLength="50" />
+          <Property Name="Gid" Type="uniqueidentifier" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Roles">
+          <Key>
+            <PropertyRef Name="RlId" />
+          </Key>
+          <Property Name="RlId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MerId" Type="int" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="Remark" Type="nvarchar" MaxLength="200" />
+          <Property Name="CreatedOn" Type="datetime" />
+          <Property Name="CreatedBy" Type="nvarchar" MaxLength="50" />
+          <Property Name="ModifiedOn" Type="datetime" />
+          <Property Name="ModifiedBy" Type="nvarchar" MaxLength="50" />
+          <Property Name="Gid" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="IsDel" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SparringRecord">
+          <Key>
+            <PropertyRef Name="Gid" />
+          </Key>
+          <Property Name="OrId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Status" Type="int" Nullable="false" />
+          <Property Name="MastName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="StartTime" Type="datetime" Nullable="false" />
+          <Property Name="EndTime" Type="datetime" Nullable="false" />
+          <Property Name="MastRate" Type="float" Nullable="false" />
+          <Property Name="MerId" Type="int" />
+          <Property Name="CreatedOn" Type="datetime" />
+          <Property Name="CreatedBy" Type="nvarchar" MaxLength="50" />
+          <Property Name="ModifiedOn" Type="datetime" />
+          <Property Name="ModifiedBy" Type="nvarchar" MaxLength="50" />
+          <Property Name="Gid" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="BtId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="MastId" Type="uniqueidentifier" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SqlSrcipt">
+          <Key>
+            <PropertyRef Name="SsId" />
+          </Key>
+          <Property Name="SsId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="MerId" Type="int" Nullable="false" />
+          <Property Name="Srcipt" Type="text" Nullable="false" />
+          <Property Name="Remark" Type="nvarchar" MaxLength="200" />
+        </EntityType>
+        <EntityType Name="SwitchRecord">
+          <Key>
+            <PropertyRef Name="Gid" />
+          </Key>
+          <Property Name="OrId" Type="uniqueidentifier" />
+          <Property Name="FromNo" Type="nvarchar" MaxLength="50" />
+          <Property Name="ToNo" Type="nvarchar" MaxLength="50" />
+          <Property Name="Amounts" Type="float" />
+          <Property Name="TeBall" Type="int" />
+          <Property Name="TeBi" Type="int" />
+          <Property Name="StartTime" Type="datetime" />
+          <Property Name="EndTime" Type="datetime" />
+          <Property Name="TotalTime" Type="int" />
+          <Property Name="CreatedOn" Type="datetime" />
+          <Property Name="CreatedBy" Type="nvarchar" MaxLength="50" />
+          <Property Name="ModifiedOn" Type="datetime" />
+          <Property Name="ModifiedBy" Type="nvarchar" MaxLength="50" />
+          <Property Name="Gid" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="BtId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="FromBtId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="ActualBillingTime" Type="datetime" />
+        </EntityType>
+        <EntityType Name="SystemSettings">
+          <Key>
+            <PropertyRef Name="Gid" />
+          </Key>
+          <Property Name="MerId" Type="int" />
+          <Property Name="LeastCostTime" Type="int" />
+          <Property Name="LeastQuitTime" Type="int" />
+          <Property Name="AccountingUnit" Type="int" />
+          <Property Name="BilliardFreshTime" Type="int" />
+          <Property Name="IsAllowQuit" Type="bit" Nullable="false" />
+          <Property Name="BalanceType" Type="int" />
+          <Property Name="IsDrinkCostPrint" Type="bit" Nullable="false" />
+          <Property Name="IsPersonalDrinkPrint" Type="bit" Nullable="false" />
+          <Property Name="IsExchangeBilliardPrint" Type="bit" Nullable="false" />
+          <Property Name="IsHourCostPrint" Type="bit" Nullable="false" />
+          <Property Name="IsBeginPrint" Type="bit" Nullable="false" />
+          <Property Name="IsRepeatPrint" Type="bit" Nullable="false" />
+          <Property Name="CompanyName" Type="nvarchar" MaxLength="100" />
+          <Property Name="PageHeader" Type="nvarchar" MaxLength="100" />
+          <Property Name="PageFooter" Type="nvarchar" MaxLength="100" />
+          <Property Name="IsTurnPrint" Type="bit" Nullable="false" />
+          <Property Name="CountObject" Type="bit" Nullable="false" />
+          <Property Name="CreatedOn" Type="datetime" />
+          <Property Name="CreatedBy" Type="nvarchar" MaxLength="50" />
+          <Property Name="ModifiedOn" Type="datetime" />
+          <Property Name="ModifiedBy" Type="nvarchar" MaxLength="50" />
+          <Property Name="IsMenuRight" Type="bit" Nullable="false" />
+          <Property Name="Appointment" Type="int" />
+          <Property Name="FixedTime" Type="int" />
+          <Property Name="Gid" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="ChargeRule" Type="int" Nullable="false" />
+          <Property Name="OpenWatchBallTable" Type="bit" Nullable="false" />
+          <Property Name="OpenSparring" Type="bit" Nullable="false" />
+          <Property Name="OpenTiming" Type="bit" Nullable="false" />
+          <Property Name="OpenAppointment" Type="bit" Nullable="false" />
+          <Property Name="OpenRecharge" Type="bit" Nullable="false" />
+          <Property Name="OpenRecordAccount" Type="bit" Nullable="false" />
+          <Property Name="OpenBento" Type="bit" Nullable="false" />
+          <Property Name="OpenWaveClock" Type="bit" Nullable="false" />
+          <Property Name="OpenMargin" Type="bit" Nullable="false" />
+          <Property Name="PrintTwo" Type="bit" Nullable="false" />
+          <Property Name="CloseLight" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="T_Command">
+          <Key>
+            <PropertyRef Name="Comm_Id" />
+          </Key>
+          <Property Name="Comm_Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="MerId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Execute_Status" Type="int" Nullable="false" />
+          <Property Name="Execute_Code" Type="int" Nullable="false" />
+          <Property Name="Execute_Parameter" Type="text" />
+          <Property Name="Execute_Result" Type="text" />
+          <Property Name="Execute_Date" Type="datetime" />
+          <Property Name="CreatedOn" Type="datetime" />
+          <Property Name="CreatedBy" Type="varchar" MaxLength="30" />
+          <Property Name="ModifiedOn" Type="datetime" />
+          <Property Name="ModifiedBy" Type="varchar" MaxLength="30" />
+        </EntityType>
+        <EntityType Name="T_CommandBak">
+          <Key>
+            <PropertyRef Name="Comm_Id" />
+          </Key>
+          <Property Name="Comm_Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="MerId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Execute_Status" Type="int" Nullable="false" />
+          <Property Name="Execute_Code" Type="int" Nullable="false" />
+          <Property Name="Execute_Parameter" Type="text" />
+          <Property Name="Execute_Result" Type="text" />
+          <Property Name="Execute_Date" Type="datetime" />
+          <Property Name="CreatedOn" Type="datetime" />
+          <Property Name="CreatedBy" Type="varchar" MaxLength="30" />
+          <Property Name="ModifiedOn" Type="datetime" />
+          <Property Name="ModifiedBy" Type="varchar" MaxLength="30" />
+        </EntityType>
+        <EntityType Name="Transition">
+          <Key>
+            <PropertyRef Name="TrId" />
+          </Key>
+          <Property Name="TrId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="MerId" Type="int" />
+          <Property Name="DrinkAmounts" Type="float" />
+          <Property Name="OperatAmounts" Type="float" />
+          <Property Name="RateAmounts" Type="float" />
+          <Property Name="OperatCash" Type="float" />
+          <Property Name="FromUser" Type="nvarchar" MaxLength="50" />
+          <Property Name="FromUserId" Type="int" />
+          <Property Name="ToUser" Type="nvarchar" MaxLength="50" />
+          <Property Name="ToUserId" Type="int" />
+          <Property Name="OnTime" Type="datetime" />
+          <Property Name="Time" Type="datetime" />
+          <Property Name="Balances" Type="float" />
+          <Property Name="PaidBalances" Type="float" />
+          <Property Name="TeBi" Type="int" />
+          <Property Name="PaidTeBi" Type="int" />
+          <Property Name="CheckAmount" Type="float" />
+          <Property Name="TeBall" Type="int" />
+          <Property Name="PaidTeBall" Type="int" />
+          <Property Name="OweTeBall" Type="int" />
+          <Property Name="TotalOperatAmounts" Type="float" />
+          <Property Name="PaidCash" Type="float" />
+          <Property Name="OweCash" Type="float" />
+          <Property Name="CreatedOn" Type="datetime" />
+          <Property Name="CreatedBy" Type="nvarchar" MaxLength="50" />
+          <Property Name="ModifiedOn" Type="datetime" />
+          <Property Name="ModifiedBy" Type="nvarchar" MaxLength="50" />
+          <Property Name="MasterAmmount" Type="float" />
+          <Property Name="TranNo" Type="bigint" />
+          <Property Name="CodePaymentAmount" Type="float" />
+          <Property Name="MobilePaymentAmount" Type="float" />
+          <Property Name="CardPayMoney" Type="float" />
+          <Property Name="Borrowing" Type="decimal" Precision="10" Scale="2" Nullable="false" />
+          <Property Name="Repayment" Type="decimal" Precision="10" Scale="2" Nullable="false" />
+          <Property Name="BentoCollection" Type="decimal" Precision="10" Scale="2" Nullable="false" />
+          <Property Name="BentoArrearage" Type="decimal" Precision="10" Scale="2" Nullable="false" />
+          <Property Name="WatchAmount" Type="decimal" Precision="10" Scale="2" Nullable="false" />
+          <Property Name="MobilePhonePayAmount" Type="decimal" Precision="10" Scale="2" Nullable="false" />
+        </EntityType>
+        <EntityType Name="UserInfo">
+          <Key>
+            <PropertyRef Name="UsId" />
+          </Key>
+          <Property Name="UsId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MerId" Type="int" />
+          <Property Name="Number" Type="nvarchar" MaxLength="50" />
+          <Property Name="UserName" Type="nvarchar" MaxLength="50" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="Password" Type="nvarchar" MaxLength="50" />
+          <Property Name="Sex" Type="tinyint" />
+          <Property Name="Department" Type="tinyint" />
+          <Property Name="Type" Type="tinyint" />
+          <Property Name="IsDisabled" Type="tinyint" />
+          <Property Name="Birthday" Type="datetime" />
+          <Property Name="IdCard" Type="nvarchar" MaxLength="50" />
+          <Property Name="Phone" Type="nvarchar" MaxLength="50" />
+          <Property Name="CreatedOn" Type="datetime" />
+          <Property Name="CreatedBy" Type="nvarchar" MaxLength="50" />
+          <Property Name="ModifiedOn" Type="datetime" />
+          <Property Name="ModifiedBy" Type="nvarchar" MaxLength="50" />
+          <Property Name="IsDel" Type="int" Nullable="false" />
+          <Property Name="Gid" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="BorrowAmount" Type="decimal" Precision="10" Scale="2" Nullable="false" />
+          <Property Name="RepaymentAmount" Type="decimal" Precision="10" Scale="2" Nullable="false" />
+          <Property Name="OweCashAmount" Type="decimal" Precision="10" Scale="2" Nullable="false" />
+        </EntityType>
+        <EntityType Name="UserInRole">
+          <Key>
+            <PropertyRef Name="UrId" />
+          </Key>
+          <Property Name="UrId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IsDel" Type="int" Nullable="false" />
+          <Property Name="Gid" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="UsId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="RlId" Type="uniqueidentifier" Nullable="false" />
+        </EntityType>
+        <EntityType Name="WarehousingRecord">
+          <Key>
+            <PropertyRef Name="WhsrId" />
+          </Key>
+          <Property Name="WhsrId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="GoId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Number" Type="int" Nullable="false" />
+          <Property Name="HandleType" Type="bit" Nullable="false" />
+          <Property Name="Remark" Type="nvarchar" MaxLength="100" />
+          <Property Name="CreatedOn" Type="datetime" />
+          <Property Name="CreatedBy" Type="varchar" MaxLength="30" />
+        </EntityType>
+        <EntityType Name="WatchBallTableRecord">
+          <Key>
+            <PropertyRef Name="WbtrId" />
+          </Key>
+          <Property Name="WbtrId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="TranNo" Type="bigint" Nullable="false" />
+          <Property Name="OrId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="BabyId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="WatchType" Type="bit" Nullable="false" />
+          <Property Name="StartTime" Type="datetime" Nullable="false" />
+          <Property Name="EndTime" Type="datetime" />
+          <Property Name="TotalTime" Type="int" Nullable="false" />
+          <Property Name="WatchAmount" Type="decimal" Precision="10" Scale="2" Nullable="false" />
+          <Property Name="CashBackAmount" Type="decimal" Precision="10" Scale="2" Nullable="false" />
+          <Property Name="CreatedOn" Type="datetime" />
+          <Property Name="CreatedBy" Type="varchar" MaxLength="30" />
+          <Property Name="ModifiedOn" Type="datetime" />
+          <Property Name="ModifiedBy" Type="varchar" MaxLength="30" />
+        </EntityType>
+        <EntityType Name="WaveClock">
+          <Key>
+            <PropertyRef Name="Gid" />
+          </Key>
+          <Property Name="MerId" Type="int" />
+          <Property Name="CusName" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="OrId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="StartTime" Type="datetime" />
+          <Property Name="EndTime" Type="datetime" />
+          <Property Name="CreatedOn" Type="datetime" />
+          <Property Name="CreatedBy" Type="nvarchar" MaxLength="50" />
+          <Property Name="ModifiedOn" Type="datetime" />
+          <Property Name="ModifiedBy" Type="nvarchar" MaxLength="50" />
+          <Property Name="Amounts" Type="float" />
+          <Property Name="TeBi" Type="int" />
+          <Property Name="Gid" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="ActualBillingTime" Type="datetime" />
+        </EntityType>
+        <Association Name="FK_BALLTABL_REFERENCE_BALLTABL">
+          <End Role="BallTableType" Type="Self.BallTableType" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="BallTables" Type="Self.BallTables" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BallTableType">
+              <PropertyRef Name="Gid" />
+            </Principal>
+            <Dependent Role="BallTables">
+              <PropertyRef Name="BatId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BUY_REFERENCE_ORDERS">
+          <End Role="Orders" Type="Self.Orders" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Buy" Type="Self.Buy" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Orders">
+              <PropertyRef Name="OrId" />
+            </Principal>
+            <Dependent Role="Buy">
+              <PropertyRef Name="OrId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MEMBERDC_REFERENCE_DISCOUNT">
+          <End Role="Discount" Type="Self.Discount" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="MemberDc" Type="Self.MemberDc" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Discount">
+              <PropertyRef Name="Gid" />
+            </Principal>
+            <Dependent Role="MemberDc">
+              <PropertyRef Name="DcId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SWITCHRE_REFERENCE_ORDERS">
+          <End Role="Orders" Type="Self.Orders" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="SwitchRecord" Type="Self.SwitchRecord" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Orders">
+              <PropertyRef Name="OrId" />
+            </Principal>
+            <Dependent Role="SwitchRecord">
+              <PropertyRef Name="OrId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <!--生成过程中发现错误:
+警告 6035: 关系“FK_USERINRO_REFERENCE_ROLES”在关系主端上有一些列不属于表的键的一部分。已排除了此关系。
+        <Association Name="FK_USERINRO_REFERENCE_ROLES" />-->
+        <!--生成过程中发现错误:
+警告 6035: 关系“FK_USERINRO_REFERENCE_USERINFO”在关系主端上有一些列不属于表的键的一部分。已排除了此关系。
+        <Association Name="FK_USERINRO_REFERENCE_USERINFO" />-->
+        <EntityContainer Name="billiardModelStoreContainer">
+          <EntitySet Name="BallTables" EntityType="Self.BallTables" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="BallTableType" EntityType="Self.BallTableType" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Bento" EntityType="Self.Bento" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="BillardMast" EntityType="Self.BillardMast" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="BilliardsBaby" EntityType="Self.BilliardsBaby" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Buy" EntityType="Self.Buy" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Discount" EntityType="Self.Discount" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Goods" EntityType="Self.Goods" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="LightControl" EntityType="Self.LightControl" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="LoginLog" EntityType="Self.LoginLog" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Logs" EntityType="Self.Logs" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Machine" EntityType="Self.Machine" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MarginCustomer" EntityType="Self.MarginCustomer" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MemberDc" EntityType="Self.MemberDc" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MemberType" EntityType="Self.MemberType" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Merchants" EntityType="Self.Merchants" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Notifies" EntityType="Self.Notifies" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="O2OPayInfo" EntityType="Self.O2OPayInfo" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="OpenCardRecord" EntityType="Self.OpenCardRecord" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="OptRecord" EntityType="Self.OptRecord" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="OptRecordBak" EntityType="Self.OptRecordBak" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Orders" EntityType="Self.Orders" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ProductType" EntityType="Self.ProductType" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ProgramUpdateConfig" EntityType="Self.ProgramUpdateConfig" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="RechargeRecord" EntityType="Self.RechargeRecord" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="RechargeSetting" EntityType="Self.RechargeSetting" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="RecordAccount" EntityType="Self.RecordAccount" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="RecordAccountDetail" EntityType="Self.RecordAccountDetail" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Relay" EntityType="Self.Relay" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="RepayRecord" EntityType="Self.RepayRecord" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Resource" EntityType="Self.Resource" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="RoleAccess" EntityType="Self.RoleAccess" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Roles" EntityType="Self.Roles" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SparringRecord" EntityType="Self.SparringRecord" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SqlSrcipt" EntityType="Self.SqlSrcipt" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SwitchRecord" EntityType="Self.SwitchRecord" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SystemSettings" EntityType="Self.SystemSettings" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="T_Command" EntityType="Self.T_Command" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="T_CommandBak" EntityType="Self.T_CommandBak" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Transition" EntityType="Self.Transition" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UserInfo" EntityType="Self.UserInfo" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UserInRole" EntityType="Self.UserInRole" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="WarehousingRecord" EntityType="Self.WarehousingRecord" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="WatchBallTableRecord" EntityType="Self.WatchBallTableRecord" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="WaveClock" EntityType="Self.WaveClock" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_BALLTABL_REFERENCE_BALLTABL" Association="Self.FK_BALLTABL_REFERENCE_BALLTABL">
+            <End Role="BallTableType" EntitySet="BallTableType" />
+            <End Role="BallTables" EntitySet="BallTables" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BUY_REFERENCE_ORDERS" Association="Self.FK_BUY_REFERENCE_ORDERS">
+            <End Role="Orders" EntitySet="Orders" />
+            <End Role="Buy" EntitySet="Buy" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MEMBERDC_REFERENCE_DISCOUNT" Association="Self.FK_MEMBERDC_REFERENCE_DISCOUNT">
+            <End Role="Discount" EntitySet="Discount" />
+            <End Role="MemberDc" EntitySet="MemberDc" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SWITCHRE_REFERENCE_ORDERS" Association="Self.FK_SWITCHRE_REFERENCE_ORDERS">
+            <End Role="Orders" EntitySet="Orders" />
+            <End Role="SwitchRecord" EntitySet="SwitchRecord" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="billiardModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="BallTables">
+          <Key>
+            <PropertyRef Name="Gid" />
+          </Key>
+          <Property Name="MerId" Type="Int32" />
+          <Property Name="Type" Type="Byte" />
+          <Property Name="Number" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="RateByHouer" Type="Int32" />
+          <Property Name="Status" Type="Byte" />
+          <Property Name="PlayTime" Type="Int32" />
+          <Property Name="StartTime" Type="DateTime" Precision="3" />
+          <Property Name="Remark" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedOn" Type="DateTime" Precision="3" />
+          <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ModifiedOn" Type="DateTime" Precision="3" />
+          <Property Name="ModifiedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="IsDel" Type="Int32" Nullable="false" />
+          <Property Name="Gid" Type="Guid" Nullable="false" />
+          <Property Name="DataSources" Type="Int32" />
+          <Property Name="ReId" Type="Guid" Nullable="false" />
+          <Property Name="BatId" Type="Guid" Nullable="false" />
+          <NavigationProperty Name="BallTableType" Relationship="Self.FK_BALLTABL_REFERENCE_BALLTABL" FromRole="BallTables" ToRole="BallTableType" />
+        </EntityType>
+        <EntityType Name="BallTableType">
+          <Key>
+            <PropertyRef Name="Gid" />
+          </Key>
+          <Property Name="MerId" Type="Int32" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedOn" Type="DateTime" Precision="3" />
+          <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ModifiedOn" Type="DateTime" Precision="3" />
+          <Property Name="ModifiedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="IsDel" Type="Int32" Nullable="false" />
+          <Property Name="Gid" Type="Guid" Nullable="false" />
+          <Property Name="Rmb" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+          <Property Name="TeRmb" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+          <Property Name="TeBi" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="BallTables" Relationship="Self.FK_BALLTABL_REFERENCE_BALLTABL" FromRole="BallTableType" ToRole="BallTables" />
+        </EntityType>
+        <EntityType Name="Bento">
+          <Key>
+            <PropertyRef Name="BentoId" />
+          </Key>
+          <Property Name="BentoId" Type="Guid" Nullable="false" />
+          <Property Name="OrId" Type="Guid" Nullable="false" />
+          <Property Name="TranNo" Type="Int64" Nullable="false" />
+          <Property Name="BentoAmount" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
+          <Property Name="CreatedOn" Type="DateTime" Precision="3" />
+          <Property Name="CreatedBy" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="BillardMast">
+          <Key>
+            <PropertyRef Name="Gid" />
+          </Key>
+          <Property Name="MerId" Type="Int32" />
+          <Property Name="MastNo" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="MastName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="MastStatus" Type="Int32" Nullable="false" />
+          <Property Name="MastRate" Type="Double" Nullable="false" />
+          <Property Name="MastGender" Type="Int32" Nullable="false" />
+          <Property Name="CreatedOn" Type="DateTime" Precision="3" />
+          <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ModifiedOn" Type="DateTime" Precision="3" />
+          <Property Name="ModifiedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="IsDel" Type="Int32" Nullable="false" />
+          <Property Name="Gid" Type="Guid" Nullable="false" />
+          <Property Name="DataSources" Type="Int32" />
+          <Property Name="BtId" Type="Guid" Nullable="false" />
+        </EntityType>
+        <EntityType Name="BilliardsBaby">
+          <Key>
+            <PropertyRef Name="BabyId" />
+          </Key>
+          <Property Name="BabyId" Type="Guid" Nullable="false" />
+          <Property Name="MerId" Type="Guid" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="FullPrice" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
+          <Property Name="FullScale" Type="Decimal" Precision="5" Scale="2" Nullable="false" />
+          <Property Name="HalfPrice" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
+          <Property Name="HalfScale" Type="Decimal" Precision="5" Scale="2" Nullable="false" />
+          <Property Name="IsDel" Type="Boolean" Nullable="false" />
+          <Property Name="CreatedOn" Type="DateTime" Precision="3" />
+          <Property Name="CreatedBy" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="ModifiedOn" Type="DateTime" Precision="3" />
+          <Property Name="ModifiedBy" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Buy">
+          <Key>
+            <PropertyRef Name="Gid" />
+          </Key>
+          <Property Name="OrId" Type="Guid" />
+          <Property Name="Code" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="BuyPrice" Type="Double" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Number" Type="Int32" />
+          <Property Name="Price" Type="Double" />
+          <Property Name="Pay" Type="Double" />
+          <Property Name="Amounts" Type="Double" />
+          <Property Name="TeBi" Type="Int32" />
+          <Property Name="CreatedOn" Type="DateTime" Precision="3" />
+          <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ModifiedOn" Type="DateTime" Precision="3" />
+          <Property Name="ModifiedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="TranNo" Type="Int64" />
+          <Property Name="Gid" Type="Guid" Nullable="false" />
+          <NavigationProperty Name="Orders" Relationship="Self.FK_BUY_REFERENCE_ORDERS" FromRole="Buy" ToRole="Orders" />
+        </EntityType>
+        <EntityType Name="Discount">
+          <Key>
+            <PropertyRef Name="Gid" />
+          </Key>
+          <Property Name="StartTime" Type="DateTime" Precision="3" />
+          <Property Name="EndTime" Type="DateTime" Precision="3" />
+          <Property Name="CreatedOn" Type="DateTime" Precision="3" />
+          <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ModifiedOn" Type="DateTime" Precision="3" />
+          <Property Name="ModifiedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="IsDel" Type="Int32" Nullable="false" />
+          <Property Name="Gid" Type="Guid" Nullable="false" />
+          <Property Name="Weekly" Type="String" MaxLength="13" FixedLength="false" Unicode="false" />
+          <Property Name="WeekOrHoliday" Type="Int32" Nullable="false" />
+          <Property Name="BatId" Type="Guid" Nullable="false" />
+          <NavigationProperty Name="MemberDc" Relationship="Self.FK_MEMBERDC_REFERENCE_DISCOUNT" FromRole="Discount" ToRole="MemberDc" />
+        </EntityType>
+        <EntityType Name="Goods">
+          <Key>
+            <PropertyRef Name="Gid" />
+          </Key>
+          <Property Name="MerId" Type="Int32" />
+          <Property Name="Number" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="BuyOn" Type="DateTime" Precision="3" />
+          <Property Name="ProduceOn" Type="DateTime" Precision="3" />
+          <Property Name="KeepDay" Type="Int32" />
+          <Property Name="BuyPrice" Type="Double" />
+          <Property Name="SellPrice" Type="Double" />
+          <Property Name="State" Type="Byte" />
+          <Property Name="Remark" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedOn" Type="DateTime" Precision="3" />
+          <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ModifiedOn" Type="DateTime" Precision="3" />
+          <Property Name="ModifiedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="TeBi" Type="Int32" />
+          <Property Name="Rmb" Type="Double" />
+          <Property Name="OrderBy" Type="Int32" />
+          <Property Name="IsDel" Type="Int32" Nullable="false" />
+          <Property Name="Gid" Type="Guid" Nullable="false" />
+          <Property Name="TypeId" Type="Guid" Nullable="false" />
+          <Property Name="Inventory" Type="Int32" Nullable="false" />
+          <Property Name="ShortCode" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="LightControl">
+          <Key>
+            <PropertyRef Name="LcId" />
+          </Key>
+          <Property Name="LcId" Type="Guid" Nullable="false" />
+          <Property Name="MerId" Type="Int32" />
+          <Property Name="Status" Type="Int32" />
+          <Property Name="MachineNumber" Type="Int32" />
+          <Property Name="RelayNumber" Type="Boolean" />
+          <Property Name="Remark" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedOn" Type="DateTime" Precision="3" />
+          <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ModifiedOn" Type="DateTime" Precision="3" />
+          <Property Name="ModifiedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="LoginLog">
+          <Key>
+            <PropertyRef Name="UserName" />
+            <PropertyRef Name="LogOnTime" />
+            <PropertyRef Name="MerId" />
+          </Key>
+          <Property Name="UserName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="LogOnTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="LogOutTime" Type="DateTime" Precision="3" />
+          <Property Name="MerId" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Logs">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Guid" Nullable="false" />
+          <Property Name="Merid" Type="Int32" Nullable="false" />
+          <Property Name="ExceptionLevel" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="ExceptionClass" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ClassName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="MethodName" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="MethodFunc" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="MethodParams" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Name="MethodReturn" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Name="Ex" Type="String" MaxLength="2000" FixedLength="false" Unicode="true" />
+          <Property Name="Remark" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedOn" Type="DateTime" Precision="3" />
+          <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Machine">
+          <Key>
+            <PropertyRef Name="MaId" />
+          </Key>
+          <Property Name="MaId" Type="Guid" Nullable="false" />
+          <Property Name="MerId" Type="Int32" />
+          <Property Name="MachineName" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="IP" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Port" Type="Int32" />
+          <Property Name="CreatedOn" Type="DateTime" Precision="3" />
+          <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ModifiedOn" Type="DateTime" Precision="3" />
+          <Property Name="ModifiedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="MarginCustomer">
+          <Key>
+            <PropertyRef Name="Gid" />
+          </Key>
+          <Property Name="MerId" Type="Int32" />
+          <Property Name="MarginName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Gender" Type="Byte" />
+          <Property Name="Phone" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="TotalMargin" Type="Double" />
+          <Property Name="Remark" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedOn" Type="DateTime" Precision="3" />
+          <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ModifiedOn" Type="DateTime" Precision="3" />
+          <Property Name="ModifiedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="IsDel" Type="Int32" Nullable="false" />
+          <Property Name="Gid" Type="Guid" Nullable="false" />
+          <Property Name="DataSources" Type="Int32" />
+        </EntityType>
+        <EntityType Name="MemberDc">
+          <Key>
+            <PropertyRef Name="Gid" />
+          </Key>
+          <Property Name="CreatedOn" Type="DateTime" Precision="3" />
+          <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ModifiedOn" Type="DateTime" Precision="3" />
+          <Property Name="ModifiedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="IsDel" Type="Int32" Nullable="false" />
+          <Property Name="Gid" Type="Guid" Nullable="false" />
+          <Property Name="DcId" Type="Guid" Nullable="false" />
+          <Property Name="StarHour" Type="DateTime" Precision="3" />
+          <Property Name="EndHour" Type="DateTime" Precision="3" />
+          <Property Name="Rmb" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+          <Property Name="TeRmb" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+          <Property Name="TeBi" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Discount" Relationship="Self.FK_MEMBERDC_REFERENCE_DISCOUNT" FromRole="MemberDc" ToRole="Discount" />
+        </EntityType>
+        <EntityType Name="MemberType">
+          <Key>
+            <PropertyRef Name="Gid" />
+          </Key>
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedOn" Type="DateTime" Precision="3" />
+          <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ModifiedOn" Type="DateTime" Precision="3" />
+          <Property Name="ModifiedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="MerId" Type="Int32" />
+          <Property Name="IsDel" Type="Int32" Nullable="false" />
+          <Property Name="Gid" Type="Guid" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Merchants">
+          <Key>
+            <PropertyRef Name="MerId" />
+          </Key>
+          <Property Name="MerId" Type="Int32" Nullable="false" />
+          <Property Name="Number" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="MerchantsName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Address" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Phone" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedOn" Type="DateTime" Precision="3" />
+          <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ModifiedOn" Type="DateTime" Precision="3" />
+          <Property Name="ModifiedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="MerNumber" Type="Guid" />
+          <Property Name="MerLogo" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="First_Area_Id" Type="Int32" />
+          <Property Name="Second_Area_Id" Type="Int32" />
+          <Property Name="Third_Area_Id" Type="Int32" />
+          <Property Name="Fourth_Area_Id" Type="Int32" />
+          <Property Name="IsDel" Type="Int32" Nullable="false" />
+          <Property Name="Gid" Type="Guid" Nullable="false" />
+          <Property Name="MerNumberStr" Type="String" MaxLength="36" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Notifies">
+          <Key>
+            <PropertyRef Name="Gid" />
+          </Key>
+          <Property Name="TypeId" Type="Int32" Nullable="false" />
+          <Property Name="MerId" Type="Int32" />
+          <Property Name="TimeLength" Type="Int32" />
+          <Property Name="NotifyTime" Type="DateTime" Precision="3" />
+          <Property Name="NotifyStatus" Type="Int32" Nullable="false" />
+          <Property Name="PhoneNo" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="CardNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedOn" Type="DateTime" Precision="3" />
+          <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ModifiedOn" Type="DateTime" Precision="3" />
+          <Property Name="ModifiedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Gid" Type="Guid" Nullable="false" />
+          <Property Name="NotiContent" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="BtId" Type="Guid" Nullable="false" />
+        </EntityType>
+        <EntityType Name="O2OPayInfo">
+          <Key>
+            <PropertyRef Name="PayId" />
+          </Key>
+          <Property Name="PayId" Type="Guid" Nullable="false" />
+          <Property Name="O2OTradeNo" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="C2BTradeNo" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="C2BOrderId" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="IsPayCoupon" Type="Int32" Nullable="false" />
+          <Property Name="CreatedOn" Type="DateTime" Precision="3" />
+          <Property Name="CreatedBy" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="ModifiedOn" Type="DateTime" Precision="3" />
+          <Property Name="ModifiedBy" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="OpenCardRecord">
+          <Key>
+            <PropertyRef Name="OcrId" />
+          </Key>
+          <Property Name="OcrId" Type="Guid" Nullable="false" />
+          <Property Name="MerId" Type="Int32" />
+          <Property Name="TranNo" Type="Int64" />
+          <Property Name="PhoneNum" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CardNum" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="DredgeStatus" Type="Int32" />
+          <Property Name="CardBalance" Type="Double" />
+          <Property Name="CreatedOn" Type="DateTime" Precision="3" />
+          <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ModifiedOn" Type="DateTime" Precision="3" />
+          <Property Name="ModifiedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Name" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="IdCard" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Birthday" Type="DateTime" Precision="0" />
+          <Property Name="IsDel" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityType Name="OptRecord">
+          <Key>
+            <PropertyRef Name="OpId" />
+          </Key>
+          <Property Name="OpId" Type="Guid" Nullable="false" />
+          <Property Name="MerId" Type="Int32" />
+          <Property Name="OpTableName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="OpType" Type="Int32" />
+          <Property Name="IsSync" Type="Boolean" />
+          <Property Name="OpTableId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="OpTableIdType" Type="Int32" />
+          <Property Name="CreatedOn" Type="DateTime" Precision="3" />
+          <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ModifiedOn" Type="DateTime" Precision="3" />
+          <Property Name="ModifiedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="OptRecordBak">
+          <Key>
+            <PropertyRef Name="OpId" />
+          </Key>
+          <Property Name="OpId" Type="Guid" Nullable="false" />
+          <Property Name="MerId" Type="Int32" />
+          <Property Name="OpTableName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="OpType" Type="Int32" />
+          <Property Name="IsSync" Type="Boolean" />
+          <Property Name="OpTableId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="OpTableIdType" Type="Int32" />
+          <Property Name="CreatedOn" Type="DateTime" Precision="3" />
+          <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ModifiedOn" Type="DateTime" Precision="3" />
+          <Property Name="ModifiedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Orders">
+          <Key>
+            <PropertyRef Name="OrId" />
+          </Key>
+          <Property Name="OrId" Type="Guid" Nullable="false" />
+          <Property Name="MerId" Type="Int32" />
+          <Property Name="GoTebi" Type="Int32" />
+          <Property Name="CustomerType" Type="Byte" />
+          <Property Name="Customer" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="DiscountCoe" Type="Int32" />
+          <Property Name="DrinkAmounts" Type="Double" />
+          <Property Name="TableNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="TableName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="OrderNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="FirstTime" Type="DateTime" Precision="3" />
+          <Property Name="StartTime" Type="DateTime" Precision="3" />
+          <Property Name="EndTime" Type="DateTime" Precision="3" />
+          <Property Name="RateAmounts" Type="Double" />
+          <Property Name="Formula" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="DiscountAmounts" Type="Double" />
+          <Property Name="AccountsAmounts" Type="Double" />
+          <Property Name="PaidAmounts" Type="Double" />
+          <Property Name="TotalTime" Type="Int32" />
+          <Property Name="Margin" Type="Double" />
+          <Property Name="PaidTeBi" Type="Int32" />
+          <Property Name="TeBi" Type="Int32" />
+          <Property Name="PaidTeBall" Type="Int32" />
+          <Property Name="TeBall" Type="Int32" />
+          <Property Name="Change" Type="Double" />
+          <Property Name="Status" Type="Int32" />
+          <Property Name="CreatedOn" Type="DateTime" Precision="3" />
+          <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ModifiedOn" Type="DateTime" Precision="3" />
+          <Property Name="ModifiedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="MarginName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="MasterAmmount" Type="Double" />
+          <Property Name="PayType" Type="Int32" />
+          <Property Name="TranNo" Type="Int64" />
+          <Property Name="PayNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="PayStatus" Type="Boolean" />
+          <Property Name="RecCardMoney" Type="Double" />
+          <Property Name="TshUId" Type="Int64" />
+          <Property Name="MobileNum" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="BtId" Type="Guid" Nullable="false" />
+          <Property Name="CloseTableTerminal" Type="Int32" Nullable="false" />
+          <Property Name="PayTerminal" Type="Int32" Nullable="false" />
+          <Property Name="CardBalance" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
+          <Property Name="BentoAmount" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
+          <Property Name="StandTime" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
+          <Property Name="StandAmount" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
+          <Property Name="ActualBillingTime" Type="DateTime" Precision="3" />
+          <Property Name="MergeToOrder" Type="Guid" />
+          <Property Name="MergeMessage" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="MergeRole" Type="Int32" Nullable="false" />
+          <Property Name="NewOrId" Type="String" MaxLength="15" FixedLength="true" Unicode="false" />
+          <Property Name="OldRateByHouer" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="OnlinePayType" Type="Int32" />
+          <Property Name="MarginId" Type="Guid" />
+          <NavigationProperty Name="Buy" Relationship="Self.FK_BUY_REFERENCE_ORDERS" FromRole="Orders" ToRole="Buy" />
+          <NavigationProperty Name="SwitchRecord" Relationship="Self.FK_SWITCHRE_REFERENCE_ORDERS" FromRole="Orders" ToRole="SwitchRecord" />
+        </EntityType>
+        <EntityType Name="ProductType">
+          <Key>
+            <PropertyRef Name="Gid" />
+          </Key>
+          <Property Name="TypeName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="OrderBy" Type="Int32" />
+          <Property Name="MerId" Type="Int32" />
+          <Property Name="CreatedOn" Type="DateTime" Precision="3" />
+          <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ModifiedOn" Type="DateTime" Precision="3" />
+          <Property Name="ModifiedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Gid" Type="Guid" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ProgramUpdateConfig">
+          <Key>
+            <PropertyRef Name="PucId" />
+          </Key>
+          <Property Name="PucId" Type="Guid" Nullable="false" />
+          <Property Name="MerId" Type="Int32" Nullable="false" />
+          <Property Name="Version" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CreatedOn" Type="DateTime" Precision="3" />
+          <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ModifiedOn" Type="DateTime" Precision="3" />
+          <Property Name="ModifiedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="IsDel" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="RechargeRecord">
+          <Key>
+            <PropertyRef Name="RecId" />
+          </Key>
+          <Property Name="RecId" Type="Guid" Nullable="false" />
+          <Property Name="OcrId" Type="Guid" />
+          <Property Name="TranNo" Type="Int64" />
+          <Property Name="RechargeMoney" Type="Double" />
+          <Property Name="DonateMoney" Type="Double" />
+          <Property Name="DonateTeBi" Type="Int32" />
+          <Property Name="RecBalance" Type="Double" />
+          <Property Name="CreatedOn" Type="DateTime" Precision="3" />
+          <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ModifiedOn" Type="DateTime" Precision="3" />
+          <Property Name="ModifiedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="RechargeSetting">
+          <Key>
+            <PropertyRef Name="ResId" />
+          </Key>
+          <Property Name="ResId" Type="Guid" Nullable="false" />
+          <Property Name="MerId" Type="Guid" Nullable="false" />
+          <Property Name="RechargeAmount" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
+          <Property Name="DonateAmount" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
+          <Property Name="DonateScale" Type="Decimal" Precision="5" Scale="2" Nullable="false" />
+          <Property Name="CreatedOn" Type="DateTime" Precision="3" />
+          <Property Name="CreatedBy" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="ModifiedOn" Type="DateTime" Precision="3" />
+          <Property Name="ModifiedBy" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="RecordAccount">
+          <Key>
+            <PropertyRef Name="ReaId" />
+          </Key>
+          <Property Name="ReaId" Type="Guid" Nullable="false" />
+          <Property Name="MerId" Type="Guid" Nullable="false" />
+          <Property Name="RecordType" Type="Int32" Nullable="false" />
+          <Property Name="RecordContent" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="IsDel" Type="Boolean" Nullable="false" />
+          <Property Name="CreatedOn" Type="DateTime" Precision="3" />
+          <Property Name="CreatedBy" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="ModifiedOn" Type="DateTime" Precision="3" />
+          <Property Name="ModifiedBy" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="RecordAccountDetail">
+          <Key>
+            <PropertyRef Name="RadId" />
+          </Key>
+          <Property Name="RadId" Type="Guid" Nullable="false" />
+          <Property Name="TranNo" Type="Int64" Nullable="false" />
+          <Property Name="Gid" Type="Guid" Nullable="false" />
+          <Property Name="Amount" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
+          <Property Name="OweCash" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
+          <Property Name="ReaId" Type="Guid" Nullable="false" />
+          <Property Name="CreatedOn" Type="DateTime" Precision="3" />
+          <Property Name="CreatedBy" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Relay">
+          <Key>
+            <PropertyRef Name="ReId" />
+          </Key>
+          <Property Name="ReId" Type="Guid" Nullable="false" />
+          <Property Name="MaId" Type="Guid" Nullable="false" />
+          <Property Name="Status" Type="Int32" />
+          <Property Name="RelayNumber" Type="Int32" />
+          <Property Name="CreatedOn" Type="DateTime" Precision="3" />
+          <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ModifiedOn" Type="DateTime" Precision="3" />
+          <Property Name="ModifiedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="RepayRecord">
+          <Key>
+            <PropertyRef Name="Gid" />
+          </Key>
+          <Property Name="MerId" Type="Int32" Nullable="false" />
+          <Property Name="PayDate" Type="DateTime" Precision="3" />
+          <Property Name="RemainAccount" Type="Double" />
+          <Property Name="PayAmount" Type="Double" />
+          <Property Name="CreatedOn" Type="DateTime" Precision="3" />
+          <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ModifiedOn" Type="DateTime" Precision="3" />
+          <Property Name="ModifiedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="TranNo" Type="Int64" />
+          <Property Name="Gid" Type="Guid" Nullable="false" />
+          <Property Name="MarginId" Type="Guid" />
+          <Property Name="UserId" Type="Guid" />
+        </EntityType>
+        <EntityType Name="Resource">
+          <Key>
+            <PropertyRef Name="ResId" />
+          </Key>
+          <Property Name="ResId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ResCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="PID" Type="Int64" />
+          <Property Name="ResName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ResUrl" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="Rmk" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedOn" Type="DateTime" Precision="3" />
+          <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ModifiedOn" Type="DateTime" Precision="3" />
+          <Property Name="ModifiedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Gid" Type="Guid" Nullable="false" />
+        </EntityType>
+        <EntityType Name="RoleAccess">
+          <Key>
+            <PropertyRef Name="RoleID" />
+            <PropertyRef Name="ResCode" />
+          </Key>
+          <Property Name="RoleID" Type="Int64" Nullable="false" />
+          <Property Name="ResCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CreatedOn" Type="DateTime" Precision="3" />
+          <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ModifiedOn" Type="DateTime" Precision="3" />
+          <Property Name="ModifiedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Gid" Type="Guid" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Roles">
+          <Key>
+            <PropertyRef Name="RlId" />
+          </Key>
+          <Property Name="RlId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MerId" Type="Int32" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Remark" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedOn" Type="DateTime" Precision="3" />
+          <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ModifiedOn" Type="DateTime" Precision="3" />
+          <Property Name="ModifiedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Gid" Type="Guid" Nullable="false" />
+          <Property Name="IsDel" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SparringRecord">
+          <Key>
+            <PropertyRef Name="Gid" />
+          </Key>
+          <Property Name="OrId" Type="Guid" Nullable="false" />
+          <Property Name="Status" Type="Int32" Nullable="false" />
+          <Property Name="MastName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="StartTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="EndTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="MastRate" Type="Double" Nullable="false" />
+          <Property Name="MerId" Type="Int32" />
+          <Property Name="CreatedOn" Type="DateTime" Precision="3" />
+          <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ModifiedOn" Type="DateTime" Precision="3" />
+          <Property Name="ModifiedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Gid" Type="Guid" Nullable="false" />
+          <Property Name="BtId" Type="Guid" Nullable="false" />
+          <Property Name="MastId" Type="Guid" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SqlSrcipt">
+          <Key>
+            <PropertyRef Name="SsId" />
+          </Key>
+          <Property Name="SsId" Type="Guid" Nullable="false" />
+          <Property Name="MerId" Type="Int32" Nullable="false" />
+          <Property Name="Srcipt" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Remark" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="SwitchRecord">
+          <Key>
+            <PropertyRef Name="Gid" />
+          </Key>
+          <Property Name="OrId" Type="Guid" />
+          <Property Name="FromNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ToNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Amounts" Type="Double" />
+          <Property Name="TeBall" Type="Int32" />
+          <Property Name="TeBi" Type="Int32" />
+          <Property Name="StartTime" Type="DateTime" Precision="3" />
+          <Property Name="EndTime" Type="DateTime" Precision="3" />
+          <Property Name="TotalTime" Type="Int32" />
+          <Property Name="CreatedOn" Type="DateTime" Precision="3" />
+          <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ModifiedOn" Type="DateTime" Precision="3" />
+          <Property Name="ModifiedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Gid" Type="Guid" Nullable="false" />
+          <Property Name="BtId" Type="Guid" Nullable="false" />
+          <Property Name="FromBtId" Type="Guid" Nullable="false" />
+          <Property Name="ActualBillingTime" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="Orders" Relationship="Self.FK_SWITCHRE_REFERENCE_ORDERS" FromRole="SwitchRecord" ToRole="Orders" />
+        </EntityType>
+        <EntityType Name="SystemSettings">
+          <Key>
+            <PropertyRef Name="Gid" />
+          </Key>
+          <Property Name="MerId" Type="Int32" />
+          <Property Name="LeastCostTime" Type="Int32" />
+          <Property Name="LeastQuitTime" Type="Int32" />
+          <Property Name="AccountingUnit" Type="Int32" />
+          <Property Name="BilliardFreshTime" Type="Int32" />
+          <Property Name="IsAllowQuit" Type="Boolean" Nullable="false" />
+          <Property Name="BalanceType" Type="Int32" />
+          <Property Name="IsDrinkCostPrint" Type="Boolean" Nullable="false" />
+          <Property Name="IsPersonalDrinkPrint" Type="Boolean" Nullable="false" />
+          <Property Name="IsExchangeBilliardPrint" Type="Boolean" Nullable="false" />
+          <Property Name="IsHourCostPrint" Type="Boolean" Nullable="false" />
+          <Property Name="IsBeginPrint" Type="Boolean" Nullable="false" />
+          <Property Name="IsRepeatPrint" Type="Boolean" Nullable="false" />
+          <Property Name="CompanyName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="PageHeader" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="PageFooter" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="IsTurnPrint" Type="Boolean" Nullable="false" />
+          <Property Name="CountObject" Type="Boolean" Nullable="false" />
+          <Property Name="CreatedOn" Type="DateTime" Precision="3" />
+          <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ModifiedOn" Type="DateTime" Precision="3" />
+          <Property Name="ModifiedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="IsMenuRight" Type="Boolean" Nullable="false" />
+          <Property Name="Appointment" Type="Int32" />
+          <Property Name="FixedTime" Type="Int32" />
+          <Property Name="Gid" Type="Guid" Nullable="false" />
+          <Property Name="ChargeRule" Type="Int32" Nullable="false" />
+          <Property Name="OpenWatchBallTable" Type="Boolean" Nullable="false" />
+          <Property Name="OpenSparring" Type="Boolean" Nullable="false" />
+          <Property Name="OpenTiming" Type="Boolean" Nullable="false" />
+          <Property Name="OpenAppointment" Type="Boolean" Nullable="false" />
+          <Property Name="OpenRecharge" Type="Boolean" Nullable="false" />
+          <Property Name="OpenRecordAccount" Type="Boolean" Nullable="false" />
+          <Property Name="OpenBento" Type="Boolean" Nullable="false" />
+          <Property Name="OpenWaveClock" Type="Boolean" Nullable="false" />
+          <Property Name="OpenMargin" Type="Boolean" Nullable="false" />
+          <Property Name="PrintTwo" Type="Boolean" Nullable="false" />
+          <Property Name="CloseLight" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityType Name="T_Command">
+          <Key>
+            <PropertyRef Name="Comm_Id" />
+          </Key>
+          <Property Name="Comm_Id" Type="Guid" Nullable="false" />
+          <Property Name="MerId" Type="Guid" Nullable="false" />
+          <Property Name="Execute_Status" Type="Int32" Nullable="false" />
+          <Property Name="Execute_Code" Type="Int32" Nullable="false" />
+          <Property Name="Execute_Parameter" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Execute_Result" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Execute_Date" Type="DateTime" Precision="3" />
+          <Property Name="CreatedOn" Type="DateTime" Precision="3" />
+          <Property Name="CreatedBy" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="ModifiedOn" Type="DateTime" Precision="3" />
+          <Property Name="ModifiedBy" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="T_CommandBak">
+          <Key>
+            <PropertyRef Name="Comm_Id" />
+          </Key>
+          <Property Name="Comm_Id" Type="Guid" Nullable="false" />
+          <Property Name="MerId" Type="Guid" Nullable="false" />
+          <Property Name="Execute_Status" Type="Int32" Nullable="false" />
+          <Property Name="Execute_Code" Type="Int32" Nullable="false" />
+          <Property Name="Execute_Parameter" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Execute_Result" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Execute_Date" Type="DateTime" Precision="3" />
+          <Property Name="CreatedOn" Type="DateTime" Precision="3" />
+          <Property Name="CreatedBy" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="ModifiedOn" Type="DateTime" Precision="3" />
+          <Property Name="ModifiedBy" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Transition">
+          <Key>
+            <PropertyRef Name="TrId" />
+          </Key>
+          <Property Name="TrId" Type="Guid" Nullable="false" />
+          <Property Name="MerId" Type="Int32" />
+          <Property Name="DrinkAmounts" Type="Double" />
+          <Property Name="OperatAmounts" Type="Double" />
+          <Property Name="RateAmounts" Type="Double" />
+          <Property Name="OperatCash" Type="Double" />
+          <Property Name="FromUser" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="FromUserId" Type="Int32" />
+          <Property Name="ToUser" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ToUserId" Type="Int32" />
+          <Property Name="OnTime" Type="DateTime" Precision="3" />
+          <Property Name="Time" Type="DateTime" Precision="3" />
+          <Property Name="Balances" Type="Double" />
+          <Property Name="PaidBalances" Type="Double" />
+          <Property Name="TeBi" Type="Int32" />
+          <Property Name="PaidTeBi" Type="Int32" />
+          <Property Name="CheckAmount" Type="Double" />
+          <Property Name="TeBall" Type="Int32" />
+          <Property Name="PaidTeBall" Type="Int32" />
+          <Property Name="OweTeBall" Type="Int32" />
+          <Property Name="TotalOperatAmounts" Type="Double" />
+          <Property Name="PaidCash" Type="Double" />
+          <Property Name="OweCash" Type="Double" />
+          <Property Name="CreatedOn" Type="DateTime" Precision="3" />
+          <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ModifiedOn" Type="DateTime" Precision="3" />
+          <Property Name="ModifiedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="MasterAmmount" Type="Double" />
+          <Property Name="TranNo" Type="Int64" />
+          <Property Name="CodePaymentAmount" Type="Double" />
+          <Property Name="MobilePaymentAmount" Type="Double" />
+          <Property Name="CardPayMoney" Type="Double" />
+          <Property Name="Borrowing" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
+          <Property Name="Repayment" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
+          <Property Name="BentoCollection" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
+          <Property Name="BentoArrearage" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
+          <Property Name="WatchAmount" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
+          <Property Name="MobilePhonePayAmount" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
+        </EntityType>
+        <EntityType Name="UserInfo">
+          <Key>
+            <PropertyRef Name="UsId" />
+          </Key>
+          <Property Name="UsId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MerId" Type="Int32" />
+          <Property Name="Number" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="UserName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Sex" Type="Byte" />
+          <Property Name="Department" Type="Byte" />
+          <Property Name="Type" Type="Byte" />
+          <Property Name="IsDisabled" Type="Byte" />
+          <Property Name="Birthday" Type="DateTime" Precision="3" />
+          <Property Name="IdCard" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Phone" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedOn" Type="DateTime" Precision="3" />
+          <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ModifiedOn" Type="DateTime" Precision="3" />
+          <Property Name="ModifiedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="IsDel" Type="Int32" Nullable="false" />
+          <Property Name="Gid" Type="Guid" Nullable="false" />
+          <Property Name="BorrowAmount" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
+          <Property Name="RepaymentAmount" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
+          <Property Name="OweCashAmount" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
+        </EntityType>
+        <EntityType Name="UserInRole">
+          <Key>
+            <PropertyRef Name="UrId" />
+          </Key>
+          <Property Name="UrId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IsDel" Type="Int32" Nullable="false" />
+          <Property Name="Gid" Type="Guid" Nullable="false" />
+          <Property Name="UsId" Type="Guid" Nullable="false" />
+          <Property Name="RlId" Type="Guid" Nullable="false" />
+        </EntityType>
+        <EntityType Name="WarehousingRecord">
+          <Key>
+            <PropertyRef Name="WhsrId" />
+          </Key>
+          <Property Name="WhsrId" Type="Guid" Nullable="false" />
+          <Property Name="GoId" Type="Guid" Nullable="false" />
+          <Property Name="Number" Type="Int32" Nullable="false" />
+          <Property Name="HandleType" Type="Boolean" Nullable="false" />
+          <Property Name="Remark" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedOn" Type="DateTime" Precision="3" />
+          <Property Name="CreatedBy" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="WatchBallTableRecord">
+          <Key>
+            <PropertyRef Name="WbtrId" />
+          </Key>
+          <Property Name="WbtrId" Type="Guid" Nullable="false" />
+          <Property Name="TranNo" Type="Int64" Nullable="false" />
+          <Property Name="OrId" Type="Guid" Nullable="false" />
+          <Property Name="BabyId" Type="Guid" Nullable="false" />
+          <Property Name="WatchType" Type="Boolean" Nullable="false" />
+          <Property Name="StartTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="EndTime" Type="DateTime" Precision="3" />
+          <Property Name="TotalTime" Type="Int32" Nullable="false" />
+          <Property Name="WatchAmount" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
+          <Property Name="CashBackAmount" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
+          <Property Name="CreatedOn" Type="DateTime" Precision="3" />
+          <Property Name="CreatedBy" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="ModifiedOn" Type="DateTime" Precision="3" />
+          <Property Name="ModifiedBy" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="WaveClock">
+          <Key>
+            <PropertyRef Name="Gid" />
+          </Key>
+          <Property Name="MerId" Type="Int32" />
+          <Property Name="CusName" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="OrId" Type="Guid" Nullable="false" />
+          <Property Name="StartTime" Type="DateTime" Precision="3" />
+          <Property Name="EndTime" Type="DateTime" Precision="3" />
+          <Property Name="CreatedOn" Type="DateTime" Precision="3" />
+          <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ModifiedOn" Type="DateTime" Precision="3" />
+          <Property Name="ModifiedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Amounts" Type="Double" />
+          <Property Name="TeBi" Type="Int32" />
+          <Property Name="Gid" Type="Guid" Nullable="false" />
+          <Property Name="ActualBillingTime" Type="DateTime" Precision="3" />
+        </EntityType>
+        <Association Name="FK_BALLTABL_REFERENCE_BALLTABL">
+          <End Role="BallTableType" Type="Self.BallTableType" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="BallTables" Type="Self.BallTables" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BallTableType">
+              <PropertyRef Name="Gid" />
+            </Principal>
+            <Dependent Role="BallTables">
+              <PropertyRef Name="BatId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BUY_REFERENCE_ORDERS">
+          <End Role="Orders" Type="Self.Orders" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Buy" Type="Self.Buy" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Orders">
+              <PropertyRef Name="OrId" />
+            </Principal>
+            <Dependent Role="Buy">
+              <PropertyRef Name="OrId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MEMBERDC_REFERENCE_DISCOUNT">
+          <End Role="Discount" Type="Self.Discount" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="MemberDc" Type="Self.MemberDc" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Discount">
+              <PropertyRef Name="Gid" />
+            </Principal>
+            <Dependent Role="MemberDc">
+              <PropertyRef Name="DcId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SWITCHRE_REFERENCE_ORDERS">
+          <End Role="Orders" Type="Self.Orders" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="SwitchRecord" Type="Self.SwitchRecord" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Orders">
+              <PropertyRef Name="OrId" />
+            </Principal>
+            <Dependent Role="SwitchRecord">
+              <PropertyRef Name="OrId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="billiardEntities1" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="BallTables" EntityType="Self.BallTables" />
+          <EntitySet Name="BallTableType" EntityType="Self.BallTableType" />
+          <EntitySet Name="Bento" EntityType="Self.Bento" />
+          <EntitySet Name="BillardMast" EntityType="Self.BillardMast" />
+          <EntitySet Name="BilliardsBaby" EntityType="Self.BilliardsBaby" />
+          <EntitySet Name="Buy" EntityType="Self.Buy" />
+          <EntitySet Name="Discount" EntityType="Self.Discount" />
+          <EntitySet Name="Goods" EntityType="Self.Goods" />
+          <EntitySet Name="LightControl" EntityType="Self.LightControl" />
+          <EntitySet Name="LoginLog" EntityType="Self.LoginLog" />
+          <EntitySet Name="Logs" EntityType="Self.Logs" />
+          <EntitySet Name="Machine" EntityType="Self.Machine" />
+          <EntitySet Name="MarginCustomer" EntityType="Self.MarginCustomer" />
+          <EntitySet Name="MemberDc" EntityType="Self.MemberDc" />
+          <EntitySet Name="MemberType" EntityType="Self.MemberType" />
+          <EntitySet Name="Merchants" EntityType="Self.Merchants" />
+          <EntitySet Name="Notifies" EntityType="Self.Notifies" />
+          <EntitySet Name="O2OPayInfo" EntityType="Self.O2OPayInfo" />
+          <EntitySet Name="OpenCardRecord" EntityType="Self.OpenCardRecord" />
+          <EntitySet Name="OptRecord" EntityType="Self.OptRecord" />
+          <EntitySet Name="OptRecordBak" EntityType="Self.OptRecordBak" />
+          <EntitySet Name="Orders" EntityType="Self.Orders" />
+          <EntitySet Name="ProductType" EntityType="Self.ProductType" />
+          <EntitySet Name="ProgramUpdateConfig" EntityType="Self.ProgramUpdateConfig" />
+          <EntitySet Name="RechargeRecord" EntityType="Self.RechargeRecord" />
+          <EntitySet Name="RechargeSetting" EntityType="Self.RechargeSetting" />
+          <EntitySet Name="RecordAccount" EntityType="Self.RecordAccount" />
+          <EntitySet Name="RecordAccountDetail" EntityType="Self.RecordAccountDetail" />
+          <EntitySet Name="Relay" EntityType="Self.Relay" />
+          <EntitySet Name="RepayRecord" EntityType="Self.RepayRecord" />
+          <EntitySet Name="Resource" EntityType="Self.Resource" />
+          <EntitySet Name="RoleAccess" EntityType="Self.RoleAccess" />
+          <EntitySet Name="Roles" EntityType="Self.Roles" />
+          <EntitySet Name="SparringRecord" EntityType="Self.SparringRecord" />
+          <EntitySet Name="SqlSrcipt" EntityType="Self.SqlSrcipt" />
+          <EntitySet Name="SwitchRecord" EntityType="Self.SwitchRecord" />
+          <EntitySet Name="SystemSettings" EntityType="Self.SystemSettings" />
+          <EntitySet Name="T_Command" EntityType="Self.T_Command" />
+          <EntitySet Name="T_CommandBak" EntityType="Self.T_CommandBak" />
+          <EntitySet Name="Transition" EntityType="Self.Transition" />
+          <EntitySet Name="UserInfo" EntityType="Self.UserInfo" />
+          <EntitySet Name="UserInRole" EntityType="Self.UserInRole" />
+          <EntitySet Name="WarehousingRecord" EntityType="Self.WarehousingRecord" />
+          <EntitySet Name="WatchBallTableRecord" EntityType="Self.WatchBallTableRecord" />
+          <EntitySet Name="WaveClock" EntityType="Self.WaveClock" />
+          <AssociationSet Name="FK_BALLTABL_REFERENCE_BALLTABL" Association="Self.FK_BALLTABL_REFERENCE_BALLTABL">
+            <End Role="BallTableType" EntitySet="BallTableType" />
+            <End Role="BallTables" EntitySet="BallTables" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BUY_REFERENCE_ORDERS" Association="Self.FK_BUY_REFERENCE_ORDERS">
+            <End Role="Orders" EntitySet="Orders" />
+            <End Role="Buy" EntitySet="Buy" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MEMBERDC_REFERENCE_DISCOUNT" Association="Self.FK_MEMBERDC_REFERENCE_DISCOUNT">
+            <End Role="Discount" EntitySet="Discount" />
+            <End Role="MemberDc" EntitySet="MemberDc" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SWITCHRE_REFERENCE_ORDERS" Association="Self.FK_SWITCHRE_REFERENCE_ORDERS">
+            <End Role="Orders" EntitySet="Orders" />
+            <End Role="SwitchRecord" EntitySet="SwitchRecord" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="billiardModelStoreContainer" CdmEntityContainer="billiardEntities1">
+          <EntitySetMapping Name="BallTables">
+            <EntityTypeMapping TypeName="billiardModel.BallTables">
+              <MappingFragment StoreEntitySet="BallTables">
+                <ScalarProperty Name="MerId" ColumnName="MerId" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="Number" ColumnName="Number" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="RateByHouer" ColumnName="RateByHouer" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="PlayTime" ColumnName="PlayTime" />
+                <ScalarProperty Name="StartTime" ColumnName="StartTime" />
+                <ScalarProperty Name="Remark" ColumnName="Remark" />
+                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="ModifiedOn" ColumnName="ModifiedOn" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="IsDel" ColumnName="IsDel" />
+                <ScalarProperty Name="Gid" ColumnName="Gid" />
+                <ScalarProperty Name="DataSources" ColumnName="DataSources" />
+                <ScalarProperty Name="ReId" ColumnName="ReId" />
+                <ScalarProperty Name="BatId" ColumnName="BatId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="BallTableType">
+            <EntityTypeMapping TypeName="billiardModel.BallTableType">
+              <MappingFragment StoreEntitySet="BallTableType">
+                <ScalarProperty Name="MerId" ColumnName="MerId" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="ModifiedOn" ColumnName="ModifiedOn" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="IsDel" ColumnName="IsDel" />
+                <ScalarProperty Name="Gid" ColumnName="Gid" />
+                <ScalarProperty Name="Rmb" ColumnName="Rmb" />
+                <ScalarProperty Name="TeRmb" ColumnName="TeRmb" />
+                <ScalarProperty Name="TeBi" ColumnName="TeBi" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Bento">
+            <EntityTypeMapping TypeName="billiardModel.Bento">
+              <MappingFragment StoreEntitySet="Bento">
+                <ScalarProperty Name="BentoId" ColumnName="BentoId" />
+                <ScalarProperty Name="OrId" ColumnName="OrId" />
+                <ScalarProperty Name="TranNo" ColumnName="TranNo" />
+                <ScalarProperty Name="BentoAmount" ColumnName="BentoAmount" />
+                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="BillardMast">
+            <EntityTypeMapping TypeName="billiardModel.BillardMast">
+              <MappingFragment StoreEntitySet="BillardMast">
+                <ScalarProperty Name="MerId" ColumnName="MerId" />
+                <ScalarProperty Name="MastNo" ColumnName="MastNo" />
+                <ScalarProperty Name="MastName" ColumnName="MastName" />
+                <ScalarProperty Name="MastStatus" ColumnName="MastStatus" />
+                <ScalarProperty Name="MastRate" ColumnName="MastRate" />
+                <ScalarProperty Name="MastGender" ColumnName="MastGender" />
+                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="ModifiedOn" ColumnName="ModifiedOn" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="IsDel" ColumnName="IsDel" />
+                <ScalarProperty Name="Gid" ColumnName="Gid" />
+                <ScalarProperty Name="DataSources" ColumnName="DataSources" />
+                <ScalarProperty Name="BtId" ColumnName="BtId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="BilliardsBaby">
+            <EntityTypeMapping TypeName="billiardModel.BilliardsBaby">
+              <MappingFragment StoreEntitySet="BilliardsBaby">
+                <ScalarProperty Name="BabyId" ColumnName="BabyId" />
+                <ScalarProperty Name="MerId" ColumnName="MerId" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="FullPrice" ColumnName="FullPrice" />
+                <ScalarProperty Name="FullScale" ColumnName="FullScale" />
+                <ScalarProperty Name="HalfPrice" ColumnName="HalfPrice" />
+                <ScalarProperty Name="HalfScale" ColumnName="HalfScale" />
+                <ScalarProperty Name="IsDel" ColumnName="IsDel" />
+                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="ModifiedOn" ColumnName="ModifiedOn" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Buy">
+            <EntityTypeMapping TypeName="billiardModel.Buy">
+              <MappingFragment StoreEntitySet="Buy">
+                <ScalarProperty Name="OrId" ColumnName="OrId" />
+                <ScalarProperty Name="Code" ColumnName="Code" />
+                <ScalarProperty Name="BuyPrice" ColumnName="BuyPrice" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Number" ColumnName="Number" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="Pay" ColumnName="Pay" />
+                <ScalarProperty Name="Amounts" ColumnName="Amounts" />
+                <ScalarProperty Name="TeBi" ColumnName="TeBi" />
+                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="ModifiedOn" ColumnName="ModifiedOn" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="TranNo" ColumnName="TranNo" />
+                <ScalarProperty Name="Gid" ColumnName="Gid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Discount">
+            <EntityTypeMapping TypeName="billiardModel.Discount">
+              <MappingFragment StoreEntitySet="Discount">
+                <ScalarProperty Name="StartTime" ColumnName="StartTime" />
+                <ScalarProperty Name="EndTime" ColumnName="EndTime" />
+                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="ModifiedOn" ColumnName="ModifiedOn" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="IsDel" ColumnName="IsDel" />
+                <ScalarProperty Name="Gid" ColumnName="Gid" />
+                <ScalarProperty Name="Weekly" ColumnName="Weekly" />
+                <ScalarProperty Name="WeekOrHoliday" ColumnName="WeekOrHoliday" />
+                <ScalarProperty Name="BatId" ColumnName="BatId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Goods">
+            <EntityTypeMapping TypeName="billiardModel.Goods">
+              <MappingFragment StoreEntitySet="Goods">
+                <ScalarProperty Name="MerId" ColumnName="MerId" />
+                <ScalarProperty Name="Number" ColumnName="Number" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="BuyOn" ColumnName="BuyOn" />
+                <ScalarProperty Name="ProduceOn" ColumnName="ProduceOn" />
+                <ScalarProperty Name="KeepDay" ColumnName="KeepDay" />
+                <ScalarProperty Name="BuyPrice" ColumnName="BuyPrice" />
+                <ScalarProperty Name="SellPrice" ColumnName="SellPrice" />
+                <ScalarProperty Name="State" ColumnName="State" />
+                <ScalarProperty Name="Remark" ColumnName="Remark" />
+                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="ModifiedOn" ColumnName="ModifiedOn" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="TeBi" ColumnName="TeBi" />
+                <ScalarProperty Name="Rmb" ColumnName="Rmb" />
+                <ScalarProperty Name="OrderBy" ColumnName="OrderBy" />
+                <ScalarProperty Name="IsDel" ColumnName="IsDel" />
+                <ScalarProperty Name="Gid" ColumnName="Gid" />
+                <ScalarProperty Name="TypeId" ColumnName="TypeId" />
+                <ScalarProperty Name="Inventory" ColumnName="Inventory" />
+                <ScalarProperty Name="ShortCode" ColumnName="ShortCode" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="LightControl">
+            <EntityTypeMapping TypeName="billiardModel.LightControl">
+              <MappingFragment StoreEntitySet="LightControl">
+                <ScalarProperty Name="LcId" ColumnName="LcId" />
+                <ScalarProperty Name="MerId" ColumnName="MerId" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="MachineNumber" ColumnName="MachineNumber" />
+                <ScalarProperty Name="RelayNumber" ColumnName="RelayNumber" />
+                <ScalarProperty Name="Remark" ColumnName="Remark" />
+                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="ModifiedOn" ColumnName="ModifiedOn" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="LoginLog">
+            <EntityTypeMapping TypeName="billiardModel.LoginLog">
+              <MappingFragment StoreEntitySet="LoginLog">
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="LogOnTime" ColumnName="LogOnTime" />
+                <ScalarProperty Name="LogOutTime" ColumnName="LogOutTime" />
+                <ScalarProperty Name="MerId" ColumnName="MerId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Logs">
+            <EntityTypeMapping TypeName="billiardModel.Logs">
+              <MappingFragment StoreEntitySet="Logs">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Merid" ColumnName="Merid" />
+                <ScalarProperty Name="ExceptionLevel" ColumnName="ExceptionLevel" />
+                <ScalarProperty Name="ExceptionClass" ColumnName="ExceptionClass" />
+                <ScalarProperty Name="ClassName" ColumnName="ClassName" />
+                <ScalarProperty Name="MethodName" ColumnName="MethodName" />
+                <ScalarProperty Name="MethodFunc" ColumnName="MethodFunc" />
+                <ScalarProperty Name="MethodParams" ColumnName="MethodParams" />
+                <ScalarProperty Name="MethodReturn" ColumnName="MethodReturn" />
+                <ScalarProperty Name="Ex" ColumnName="Ex" />
+                <ScalarProperty Name="Remark" ColumnName="Remark" />
+                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Machine">
+            <EntityTypeMapping TypeName="billiardModel.Machine">
+              <MappingFragment StoreEntitySet="Machine">
+                <ScalarProperty Name="MaId" ColumnName="MaId" />
+                <ScalarProperty Name="MerId" ColumnName="MerId" />
+                <ScalarProperty Name="MachineName" ColumnName="MachineName" />
+                <ScalarProperty Name="IP" ColumnName="IP" />
+                <ScalarProperty Name="Port" ColumnName="Port" />
+                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="ModifiedOn" ColumnName="ModifiedOn" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MarginCustomer">
+            <EntityTypeMapping TypeName="billiardModel.MarginCustomer">
+              <MappingFragment StoreEntitySet="MarginCustomer">
+                <ScalarProperty Name="MerId" ColumnName="MerId" />
+                <ScalarProperty Name="MarginName" ColumnName="MarginName" />
+                <ScalarProperty Name="Gender" ColumnName="Gender" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="TotalMargin" ColumnName="TotalMargin" />
+                <ScalarProperty Name="Remark" ColumnName="Remark" />
+                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="ModifiedOn" ColumnName="ModifiedOn" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="IsDel" ColumnName="IsDel" />
+                <ScalarProperty Name="Gid" ColumnName="Gid" />
+                <ScalarProperty Name="DataSources" ColumnName="DataSources" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MemberDc">
+            <EntityTypeMapping TypeName="billiardModel.MemberDc">
+              <MappingFragment StoreEntitySet="MemberDc">
+                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="ModifiedOn" ColumnName="ModifiedOn" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="IsDel" ColumnName="IsDel" />
+                <ScalarProperty Name="Gid" ColumnName="Gid" />
+                <ScalarProperty Name="DcId" ColumnName="DcId" />
+                <ScalarProperty Name="StarHour" ColumnName="StarHour" />
+                <ScalarProperty Name="EndHour" ColumnName="EndHour" />
+                <ScalarProperty Name="Rmb" ColumnName="Rmb" />
+                <ScalarProperty Name="TeRmb" ColumnName="TeRmb" />
+                <ScalarProperty Name="TeBi" ColumnName="TeBi" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MemberType">
+            <EntityTypeMapping TypeName="billiardModel.MemberType">
+              <MappingFragment StoreEntitySet="MemberType">
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="ModifiedOn" ColumnName="ModifiedOn" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="MerId" ColumnName="MerId" />
+                <ScalarProperty Name="IsDel" ColumnName="IsDel" />
+                <ScalarProperty Name="Gid" ColumnName="Gid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Merchants">
+            <EntityTypeMapping TypeName="billiardModel.Merchants">
+              <MappingFragment StoreEntitySet="Merchants">
+                <ScalarProperty Name="MerId" ColumnName="MerId" />
+                <ScalarProperty Name="Number" ColumnName="Number" />
+                <ScalarProperty Name="MerchantsName" ColumnName="MerchantsName" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="ModifiedOn" ColumnName="ModifiedOn" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="MerNumber" ColumnName="MerNumber" />
+                <ScalarProperty Name="MerLogo" ColumnName="MerLogo" />
+                <ScalarProperty Name="First_Area_Id" ColumnName="First_Area_Id" />
+                <ScalarProperty Name="Second_Area_Id" ColumnName="Second_Area_Id" />
+                <ScalarProperty Name="Third_Area_Id" ColumnName="Third_Area_Id" />
+                <ScalarProperty Name="Fourth_Area_Id" ColumnName="Fourth_Area_Id" />
+                <ScalarProperty Name="IsDel" ColumnName="IsDel" />
+                <ScalarProperty Name="Gid" ColumnName="Gid" />
+                <ScalarProperty Name="MerNumberStr" ColumnName="MerNumberStr" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Notifies">
+            <EntityTypeMapping TypeName="billiardModel.Notifies">
+              <MappingFragment StoreEntitySet="Notifies">
+                <ScalarProperty Name="TypeId" ColumnName="TypeId" />
+                <ScalarProperty Name="MerId" ColumnName="MerId" />
+                <ScalarProperty Name="TimeLength" ColumnName="TimeLength" />
+                <ScalarProperty Name="NotifyTime" ColumnName="NotifyTime" />
+                <ScalarProperty Name="NotifyStatus" ColumnName="NotifyStatus" />
+                <ScalarProperty Name="PhoneNo" ColumnName="PhoneNo" />
+                <ScalarProperty Name="CardNo" ColumnName="CardNo" />
+                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="ModifiedOn" ColumnName="ModifiedOn" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="Gid" ColumnName="Gid" />
+                <ScalarProperty Name="NotiContent" ColumnName="NotiContent" />
+                <ScalarProperty Name="BtId" ColumnName="BtId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="O2OPayInfo">
+            <EntityTypeMapping TypeName="billiardModel.O2OPayInfo">
+              <MappingFragment StoreEntitySet="O2OPayInfo">
+                <ScalarProperty Name="PayId" ColumnName="PayId" />
+                <ScalarProperty Name="O2OTradeNo" ColumnName="O2OTradeNo" />
+                <ScalarProperty Name="C2BTradeNo" ColumnName="C2BTradeNo" />
+                <ScalarProperty Name="C2BOrderId" ColumnName="C2BOrderId" />
+                <ScalarProperty Name="IsPayCoupon" ColumnName="IsPayCoupon" />
+                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="ModifiedOn" ColumnName="ModifiedOn" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="OpenCardRecord">
+            <EntityTypeMapping TypeName="billiardModel.OpenCardRecord">
+              <MappingFragment StoreEntitySet="OpenCardRecord">
+                <ScalarProperty Name="OcrId" ColumnName="OcrId" />
+                <ScalarProperty Name="MerId" ColumnName="MerId" />
+                <ScalarProperty Name="TranNo" ColumnName="TranNo" />
+                <ScalarProperty Name="PhoneNum" ColumnName="PhoneNum" />
+                <ScalarProperty Name="CardNum" ColumnName="CardNum" />
+                <ScalarProperty Name="DredgeStatus" ColumnName="DredgeStatus" />
+                <ScalarProperty Name="CardBalance" ColumnName="CardBalance" />
+                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="ModifiedOn" ColumnName="ModifiedOn" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="IdCard" ColumnName="IdCard" />
+                <ScalarProperty Name="Birthday" ColumnName="Birthday" />
+                <ScalarProperty Name="IsDel" ColumnName="IsDel" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="OptRecord">
+            <EntityTypeMapping TypeName="billiardModel.OptRecord">
+              <MappingFragment StoreEntitySet="OptRecord">
+                <ScalarProperty Name="OpId" ColumnName="OpId" />
+                <ScalarProperty Name="MerId" ColumnName="MerId" />
+                <ScalarProperty Name="OpTableName" ColumnName="OpTableName" />
+                <ScalarProperty Name="OpType" ColumnName="OpType" />
+                <ScalarProperty Name="IsSync" ColumnName="IsSync" />
+                <ScalarProperty Name="OpTableId" ColumnName="OpTableId" />
+                <ScalarProperty Name="OpTableIdType" ColumnName="OpTableIdType" />
+                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="ModifiedOn" ColumnName="ModifiedOn" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="OptRecordBak">
+            <EntityTypeMapping TypeName="billiardModel.OptRecordBak">
+              <MappingFragment StoreEntitySet="OptRecordBak">
+                <ScalarProperty Name="OpId" ColumnName="OpId" />
+                <ScalarProperty Name="MerId" ColumnName="MerId" />
+                <ScalarProperty Name="OpTableName" ColumnName="OpTableName" />
+                <ScalarProperty Name="OpType" ColumnName="OpType" />
+                <ScalarProperty Name="IsSync" ColumnName="IsSync" />
+                <ScalarProperty Name="OpTableId" ColumnName="OpTableId" />
+                <ScalarProperty Name="OpTableIdType" ColumnName="OpTableIdType" />
+                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="ModifiedOn" ColumnName="ModifiedOn" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Orders">
+            <EntityTypeMapping TypeName="billiardModel.Orders">
+              <MappingFragment StoreEntitySet="Orders">
+                <ScalarProperty Name="OrId" ColumnName="OrId" />
+                <ScalarProperty Name="MerId" ColumnName="MerId" />
+                <ScalarProperty Name="GoTebi" ColumnName="GoTebi" />
+                <ScalarProperty Name="CustomerType" ColumnName="CustomerType" />
+                <ScalarProperty Name="Customer" ColumnName="Customer" />
+                <ScalarProperty Name="DiscountCoe" ColumnName="DiscountCoe" />
+                <ScalarProperty Name="DrinkAmounts" ColumnName="DrinkAmounts" />
+                <ScalarProperty Name="TableNumber" ColumnName="TableNumber" />
+                <ScalarProperty Name="TableName" ColumnName="TableName" />
+                <ScalarProperty Name="OrderNumber" ColumnName="OrderNumber" />
+                <ScalarProperty Name="FirstTime" ColumnName="FirstTime" />
+                <ScalarProperty Name="StartTime" ColumnName="StartTime" />
+                <ScalarProperty Name="EndTime" ColumnName="EndTime" />
+                <ScalarProperty Name="RateAmounts" ColumnName="RateAmounts" />
+                <ScalarProperty Name="Formula" ColumnName="Formula" />
+                <ScalarProperty Name="DiscountAmounts" ColumnName="DiscountAmounts" />
+                <ScalarProperty Name="AccountsAmounts" ColumnName="AccountsAmounts" />
+                <ScalarProperty Name="PaidAmounts" ColumnName="PaidAmounts" />
+                <ScalarProperty Name="TotalTime" ColumnName="TotalTime" />
+                <ScalarProperty Name="Margin" ColumnName="Margin" />
+                <ScalarProperty Name="PaidTeBi" ColumnName="PaidTeBi" />
+                <ScalarProperty Name="TeBi" ColumnName="TeBi" />
+                <ScalarProperty Name="PaidTeBall" ColumnName="PaidTeBall" />
+                <ScalarProperty Name="TeBall" ColumnName="TeBall" />
+                <ScalarProperty Name="Change" ColumnName="Change" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="ModifiedOn" ColumnName="ModifiedOn" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="MarginName" ColumnName="MarginName" />
+                <ScalarProperty Name="MasterAmmount" ColumnName="MasterAmmount" />
+                <ScalarProperty Name="PayType" ColumnName="PayType" />
+                <ScalarProperty Name="TranNo" ColumnName="TranNo" />
+                <ScalarProperty Name="PayNumber" ColumnName="PayNumber" />
+                <ScalarProperty Name="PayStatus" ColumnName="PayStatus" />
+                <ScalarProperty Name="RecCardMoney" ColumnName="RecCardMoney" />
+                <ScalarProperty Name="TshUId" ColumnName="TshUId" />
+                <ScalarProperty Name="MobileNum" ColumnName="MobileNum" />
+                <ScalarProperty Name="BtId" ColumnName="BtId" />
+                <ScalarProperty Name="CloseTableTerminal" ColumnName="CloseTableTerminal" />
+                <ScalarProperty Name="PayTerminal" ColumnName="PayTerminal" />
+                <ScalarProperty Name="CardBalance" ColumnName="CardBalance" />
+                <ScalarProperty Name="BentoAmount" ColumnName="BentoAmount" />
+                <ScalarProperty Name="StandTime" ColumnName="StandTime" />
+                <ScalarProperty Name="StandAmount" ColumnName="StandAmount" />
+                <ScalarProperty Name="ActualBillingTime" ColumnName="ActualBillingTime" />
+                <ScalarProperty Name="MergeToOrder" ColumnName="MergeToOrder" />
+                <ScalarProperty Name="MergeMessage" ColumnName="MergeMessage" />
+                <ScalarProperty Name="MergeRole" ColumnName="MergeRole" />
+                <ScalarProperty Name="NewOrId" ColumnName="NewOrId" />
+                <ScalarProperty Name="OldRateByHouer" ColumnName="OldRateByHouer" />
+                <ScalarProperty Name="OnlinePayType" ColumnName="OnlinePayType" />
+                <ScalarProperty Name="MarginId" ColumnName="MarginId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ProductType">
+            <EntityTypeMapping TypeName="billiardModel.ProductType">
+              <MappingFragment StoreEntitySet="ProductType">
+                <ScalarProperty Name="TypeName" ColumnName="TypeName" />
+                <ScalarProperty Name="OrderBy" ColumnName="OrderBy" />
+                <ScalarProperty Name="MerId" ColumnName="MerId" />
+                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="ModifiedOn" ColumnName="ModifiedOn" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="Gid" ColumnName="Gid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ProgramUpdateConfig">
+            <EntityTypeMapping TypeName="billiardModel.ProgramUpdateConfig">
+              <MappingFragment StoreEntitySet="ProgramUpdateConfig">
+                <ScalarProperty Name="PucId" ColumnName="PucId" />
+                <ScalarProperty Name="MerId" ColumnName="MerId" />
+                <ScalarProperty Name="Version" ColumnName="Version" />
+                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="ModifiedOn" ColumnName="ModifiedOn" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="IsDel" ColumnName="IsDel" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RechargeRecord">
+            <EntityTypeMapping TypeName="billiardModel.RechargeRecord">
+              <MappingFragment StoreEntitySet="RechargeRecord">
+                <ScalarProperty Name="RecId" ColumnName="RecId" />
+                <ScalarProperty Name="OcrId" ColumnName="OcrId" />
+                <ScalarProperty Name="TranNo" ColumnName="TranNo" />
+                <ScalarProperty Name="RechargeMoney" ColumnName="RechargeMoney" />
+                <ScalarProperty Name="DonateMoney" ColumnName="DonateMoney" />
+                <ScalarProperty Name="DonateTeBi" ColumnName="DonateTeBi" />
+                <ScalarProperty Name="RecBalance" ColumnName="RecBalance" />
+                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="ModifiedOn" ColumnName="ModifiedOn" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RechargeSetting">
+            <EntityTypeMapping TypeName="billiardModel.RechargeSetting">
+              <MappingFragment StoreEntitySet="RechargeSetting">
+                <ScalarProperty Name="ResId" ColumnName="ResId" />
+                <ScalarProperty Name="MerId" ColumnName="MerId" />
+                <ScalarProperty Name="RechargeAmount" ColumnName="RechargeAmount" />
+                <ScalarProperty Name="DonateAmount" ColumnName="DonateAmount" />
+                <ScalarProperty Name="DonateScale" ColumnName="DonateScale" />
+                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="ModifiedOn" ColumnName="ModifiedOn" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RecordAccount">
+            <EntityTypeMapping TypeName="billiardModel.RecordAccount">
+              <MappingFragment StoreEntitySet="RecordAccount">
+                <ScalarProperty Name="ReaId" ColumnName="ReaId" />
+                <ScalarProperty Name="MerId" ColumnName="MerId" />
+                <ScalarProperty Name="RecordType" ColumnName="RecordType" />
+                <ScalarProperty Name="RecordContent" ColumnName="RecordContent" />
+                <ScalarProperty Name="IsDel" ColumnName="IsDel" />
+                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="ModifiedOn" ColumnName="ModifiedOn" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RecordAccountDetail">
+            <EntityTypeMapping TypeName="billiardModel.RecordAccountDetail">
+              <MappingFragment StoreEntitySet="RecordAccountDetail">
+                <ScalarProperty Name="RadId" ColumnName="RadId" />
+                <ScalarProperty Name="TranNo" ColumnName="TranNo" />
+                <ScalarProperty Name="Gid" ColumnName="Gid" />
+                <ScalarProperty Name="Amount" ColumnName="Amount" />
+                <ScalarProperty Name="OweCash" ColumnName="OweCash" />
+                <ScalarProperty Name="ReaId" ColumnName="ReaId" />
+                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Relay">
+            <EntityTypeMapping TypeName="billiardModel.Relay">
+              <MappingFragment StoreEntitySet="Relay">
+                <ScalarProperty Name="ReId" ColumnName="ReId" />
+                <ScalarProperty Name="MaId" ColumnName="MaId" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="RelayNumber" ColumnName="RelayNumber" />
+                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="ModifiedOn" ColumnName="ModifiedOn" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RepayRecord">
+            <EntityTypeMapping TypeName="billiardModel.RepayRecord">
+              <MappingFragment StoreEntitySet="RepayRecord">
+                <ScalarProperty Name="MerId" ColumnName="MerId" />
+                <ScalarProperty Name="PayDate" ColumnName="PayDate" />
+                <ScalarProperty Name="RemainAccount" ColumnName="RemainAccount" />
+                <ScalarProperty Name="PayAmount" ColumnName="PayAmount" />
+                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="ModifiedOn" ColumnName="ModifiedOn" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="TranNo" ColumnName="TranNo" />
+                <ScalarProperty Name="Gid" ColumnName="Gid" />
+                <ScalarProperty Name="MarginId" ColumnName="MarginId" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Resource">
+            <EntityTypeMapping TypeName="billiardModel.Resource">
+              <MappingFragment StoreEntitySet="Resource">
+                <ScalarProperty Name="ResId" ColumnName="ResId" />
+                <ScalarProperty Name="ResCode" ColumnName="ResCode" />
+                <ScalarProperty Name="PID" ColumnName="PID" />
+                <ScalarProperty Name="ResName" ColumnName="ResName" />
+                <ScalarProperty Name="ResUrl" ColumnName="ResUrl" />
+                <ScalarProperty Name="Rmk" ColumnName="Rmk" />
+                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="ModifiedOn" ColumnName="ModifiedOn" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="Gid" ColumnName="Gid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RoleAccess">
+            <EntityTypeMapping TypeName="billiardModel.RoleAccess">
+              <MappingFragment StoreEntitySet="RoleAccess">
+                <ScalarProperty Name="RoleID" ColumnName="RoleID" />
+                <ScalarProperty Name="ResCode" ColumnName="ResCode" />
+                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="ModifiedOn" ColumnName="ModifiedOn" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="Gid" ColumnName="Gid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Roles">
+            <EntityTypeMapping TypeName="billiardModel.Roles">
+              <MappingFragment StoreEntitySet="Roles">
+                <ScalarProperty Name="RlId" ColumnName="RlId" />
+                <ScalarProperty Name="MerId" ColumnName="MerId" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Remark" ColumnName="Remark" />
+                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="ModifiedOn" ColumnName="ModifiedOn" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="Gid" ColumnName="Gid" />
+                <ScalarProperty Name="IsDel" ColumnName="IsDel" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SparringRecord">
+            <EntityTypeMapping TypeName="billiardModel.SparringRecord">
+              <MappingFragment StoreEntitySet="SparringRecord">
+                <ScalarProperty Name="OrId" ColumnName="OrId" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="MastName" ColumnName="MastName" />
+                <ScalarProperty Name="StartTime" ColumnName="StartTime" />
+                <ScalarProperty Name="EndTime" ColumnName="EndTime" />
+                <ScalarProperty Name="MastRate" ColumnName="MastRate" />
+                <ScalarProperty Name="MerId" ColumnName="MerId" />
+                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="ModifiedOn" ColumnName="ModifiedOn" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="Gid" ColumnName="Gid" />
+                <ScalarProperty Name="BtId" ColumnName="BtId" />
+                <ScalarProperty Name="MastId" ColumnName="MastId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SqlSrcipt">
+            <EntityTypeMapping TypeName="billiardModel.SqlSrcipt">
+              <MappingFragment StoreEntitySet="SqlSrcipt">
+                <ScalarProperty Name="SsId" ColumnName="SsId" />
+                <ScalarProperty Name="MerId" ColumnName="MerId" />
+                <ScalarProperty Name="Srcipt" ColumnName="Srcipt" />
+                <ScalarProperty Name="Remark" ColumnName="Remark" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SwitchRecord">
+            <EntityTypeMapping TypeName="billiardModel.SwitchRecord">
+              <MappingFragment StoreEntitySet="SwitchRecord">
+                <ScalarProperty Name="OrId" ColumnName="OrId" />
+                <ScalarProperty Name="FromNo" ColumnName="FromNo" />
+                <ScalarProperty Name="ToNo" ColumnName="ToNo" />
+                <ScalarProperty Name="Amounts" ColumnName="Amounts" />
+                <ScalarProperty Name="TeBall" ColumnName="TeBall" />
+                <ScalarProperty Name="TeBi" ColumnName="TeBi" />
+                <ScalarProperty Name="StartTime" ColumnName="StartTime" />
+                <ScalarProperty Name="EndTime" ColumnName="EndTime" />
+                <ScalarProperty Name="TotalTime" ColumnName="TotalTime" />
+                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="ModifiedOn" ColumnName="ModifiedOn" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="Gid" ColumnName="Gid" />
+                <ScalarProperty Name="BtId" ColumnName="BtId" />
+                <ScalarProperty Name="FromBtId" ColumnName="FromBtId" />
+                <ScalarProperty Name="ActualBillingTime" ColumnName="ActualBillingTime" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SystemSettings">
+            <EntityTypeMapping TypeName="billiardModel.SystemSettings">
+              <MappingFragment StoreEntitySet="SystemSettings">
+                <ScalarProperty Name="MerId" ColumnName="MerId" />
+                <ScalarProperty Name="LeastCostTime" ColumnName="LeastCostTime" />
+                <ScalarProperty Name="LeastQuitTime" ColumnName="LeastQuitTime" />
+                <ScalarProperty Name="AccountingUnit" ColumnName="AccountingUnit" />
+                <ScalarProperty Name="BilliardFreshTime" ColumnName="BilliardFreshTime" />
+                <ScalarProperty Name="IsAllowQuit" ColumnName="IsAllowQuit" />
+                <ScalarProperty Name="BalanceType" ColumnName="BalanceType" />
+                <ScalarProperty Name="IsDrinkCostPrint" ColumnName="IsDrinkCostPrint" />
+                <ScalarProperty Name="IsPersonalDrinkPrint" ColumnName="IsPersonalDrinkPrint" />
+                <ScalarProperty Name="IsExchangeBilliardPrint" ColumnName="IsExchangeBilliardPrint" />
+                <ScalarProperty Name="IsHourCostPrint" ColumnName="IsHourCostPrint" />
+                <ScalarProperty Name="IsBeginPrint" ColumnName="IsBeginPrint" />
+                <ScalarProperty Name="IsRepeatPrint" ColumnName="IsRepeatPrint" />
+                <ScalarProperty Name="CompanyName" ColumnName="CompanyName" />
+                <ScalarProperty Name="PageHeader" ColumnName="PageHeader" />
+                <ScalarProperty Name="PageFooter" ColumnName="PageFooter" />
+                <ScalarProperty Name="IsTurnPrint" ColumnName="IsTurnPrint" />
+                <ScalarProperty Name="CountObject" ColumnName="CountObject" />
+                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="ModifiedOn" ColumnName="ModifiedOn" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="IsMenuRight" ColumnName="IsMenuRight" />
+                <ScalarProperty Name="Appointment" ColumnName="Appointment" />
+                <ScalarProperty Name="FixedTime" ColumnName="FixedTime" />
+                <ScalarProperty Name="Gid" ColumnName="Gid" />
+                <ScalarProperty Name="ChargeRule" ColumnName="ChargeRule" />
+                <ScalarProperty Name="OpenWatchBallTable" ColumnName="OpenWatchBallTable" />
+                <ScalarProperty Name="OpenSparring" ColumnName="OpenSparring" />
+                <ScalarProperty Name="OpenTiming" ColumnName="OpenTiming" />
+                <ScalarProperty Name="OpenAppointment" ColumnName="OpenAppointment" />
+                <ScalarProperty Name="OpenRecharge" ColumnName="OpenRecharge" />
+                <ScalarProperty Name="OpenRecordAccount" ColumnName="OpenRecordAccount" />
+                <ScalarProperty Name="OpenBento" ColumnName="OpenBento" />
+                <ScalarProperty Name="OpenWaveClock" ColumnName="OpenWaveClock" />
+                <ScalarProperty Name="OpenMargin" ColumnName="OpenMargin" />
+                <ScalarProperty Name="PrintTwo" ColumnName="PrintTwo" />
+                <ScalarProperty Name="CloseLight" ColumnName="CloseLight" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="T_Command">
+            <EntityTypeMapping TypeName="billiardModel.T_Command">
+              <MappingFragment StoreEntitySet="T_Command">
+                <ScalarProperty Name="Comm_Id" ColumnName="Comm_Id" />
+                <ScalarProperty Name="MerId" ColumnName="MerId" />
+                <ScalarProperty Name="Execute_Status" ColumnName="Execute_Status" />
+                <ScalarProperty Name="Execute_Code" ColumnName="Execute_Code" />
+                <ScalarProperty Name="Execute_Parameter" ColumnName="Execute_Parameter" />
+                <ScalarProperty Name="Execute_Result" ColumnName="Execute_Result" />
+                <ScalarProperty Name="Execute_Date" ColumnName="Execute_Date" />
+                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="ModifiedOn" ColumnName="ModifiedOn" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="T_CommandBak">
+            <EntityTypeMapping TypeName="billiardModel.T_CommandBak">
+              <MappingFragment StoreEntitySet="T_CommandBak">
+                <ScalarProperty Name="Comm_Id" ColumnName="Comm_Id" />
+                <ScalarProperty Name="MerId" ColumnName="MerId" />
+                <ScalarProperty Name="Execute_Status" ColumnName="Execute_Status" />
+                <ScalarProperty Name="Execute_Code" ColumnName="Execute_Code" />
+                <ScalarProperty Name="Execute_Parameter" ColumnName="Execute_Parameter" />
+                <ScalarProperty Name="Execute_Result" ColumnName="Execute_Result" />
+                <ScalarProperty Name="Execute_Date" ColumnName="Execute_Date" />
+                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="ModifiedOn" ColumnName="ModifiedOn" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Transition">
+            <EntityTypeMapping TypeName="billiardModel.Transition">
+              <MappingFragment StoreEntitySet="Transition">
+                <ScalarProperty Name="TrId" ColumnName="TrId" />
+                <ScalarProperty Name="MerId" ColumnName="MerId" />
+                <ScalarProperty Name="DrinkAmounts" ColumnName="DrinkAmounts" />
+                <ScalarProperty Name="OperatAmounts" ColumnName="OperatAmounts" />
+                <ScalarProperty Name="RateAmounts" ColumnName="RateAmounts" />
+                <ScalarProperty Name="OperatCash" ColumnName="OperatCash" />
+                <ScalarProperty Name="FromUser" ColumnName="FromUser" />
+                <ScalarProperty Name="FromUserId" ColumnName="FromUserId" />
+                <ScalarProperty Name="ToUser" ColumnName="ToUser" />
+                <ScalarProperty Name="ToUserId" ColumnName="ToUserId" />
+                <ScalarProperty Name="OnTime" ColumnName="OnTime" />
+                <ScalarProperty Name="Time" ColumnName="Time" />
+                <ScalarProperty Name="Balances" ColumnName="Balances" />
+                <ScalarProperty Name="PaidBalances" ColumnName="PaidBalances" />
+                <ScalarProperty Name="TeBi" ColumnName="TeBi" />
+                <ScalarProperty Name="PaidTeBi" ColumnName="PaidTeBi" />
+                <ScalarProperty Name="CheckAmount" ColumnName="CheckAmount" />
+                <ScalarProperty Name="TeBall" ColumnName="TeBall" />
+                <ScalarProperty Name="PaidTeBall" ColumnName="PaidTeBall" />
+                <ScalarProperty Name="OweTeBall" ColumnName="OweTeBall" />
+                <ScalarProperty Name="TotalOperatAmounts" ColumnName="TotalOperatAmounts" />
+                <ScalarProperty Name="PaidCash" ColumnName="PaidCash" />
+                <ScalarProperty Name="OweCash" ColumnName="OweCash" />
+                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="ModifiedOn" ColumnName="ModifiedOn" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="MasterAmmount" ColumnName="MasterAmmount" />
+                <ScalarProperty Name="TranNo" ColumnName="TranNo" />
+                <ScalarProperty Name="CodePaymentAmount" ColumnName="CodePaymentAmount" />
+                <ScalarProperty Name="MobilePaymentAmount" ColumnName="MobilePaymentAmount" />
+                <ScalarProperty Name="CardPayMoney" ColumnName="CardPayMoney" />
+                <ScalarProperty Name="Borrowing" ColumnName="Borrowing" />
+                <ScalarProperty Name="Repayment" ColumnName="Repayment" />
+                <ScalarProperty Name="BentoCollection" ColumnName="BentoCollection" />
+                <ScalarProperty Name="BentoArrearage" ColumnName="BentoArrearage" />
+                <ScalarProperty Name="WatchAmount" ColumnName="WatchAmount" />
+                <ScalarProperty Name="MobilePhonePayAmount" ColumnName="MobilePhonePayAmount" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UserInfo">
+            <EntityTypeMapping TypeName="billiardModel.UserInfo">
+              <MappingFragment StoreEntitySet="UserInfo">
+                <ScalarProperty Name="UsId" ColumnName="UsId" />
+                <ScalarProperty Name="MerId" ColumnName="MerId" />
+                <ScalarProperty Name="Number" ColumnName="Number" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Sex" ColumnName="Sex" />
+                <ScalarProperty Name="Department" ColumnName="Department" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="IsDisabled" ColumnName="IsDisabled" />
+                <ScalarProperty Name="Birthday" ColumnName="Birthday" />
+                <ScalarProperty Name="IdCard" ColumnName="IdCard" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="ModifiedOn" ColumnName="ModifiedOn" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="IsDel" ColumnName="IsDel" />
+                <ScalarProperty Name="Gid" ColumnName="Gid" />
+                <ScalarProperty Name="BorrowAmount" ColumnName="BorrowAmount" />
+                <ScalarProperty Name="RepaymentAmount" ColumnName="RepaymentAmount" />
+                <ScalarProperty Name="OweCashAmount" ColumnName="OweCashAmount" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UserInRole">
+            <EntityTypeMapping TypeName="billiardModel.UserInRole">
+              <MappingFragment StoreEntitySet="UserInRole">
+                <ScalarProperty Name="UrId" ColumnName="UrId" />
+                <ScalarProperty Name="IsDel" ColumnName="IsDel" />
+                <ScalarProperty Name="Gid" ColumnName="Gid" />
+                <ScalarProperty Name="UsId" ColumnName="UsId" />
+                <ScalarProperty Name="RlId" ColumnName="RlId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="WarehousingRecord">
+            <EntityTypeMapping TypeName="billiardModel.WarehousingRecord">
+              <MappingFragment StoreEntitySet="WarehousingRecord">
+                <ScalarProperty Name="WhsrId" ColumnName="WhsrId" />
+                <ScalarProperty Name="GoId" ColumnName="GoId" />
+                <ScalarProperty Name="Number" ColumnName="Number" />
+                <ScalarProperty Name="HandleType" ColumnName="HandleType" />
+                <ScalarProperty Name="Remark" ColumnName="Remark" />
+                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="WatchBallTableRecord">
+            <EntityTypeMapping TypeName="billiardModel.WatchBallTableRecord">
+              <MappingFragment StoreEntitySet="WatchBallTableRecord">
+                <ScalarProperty Name="WbtrId" ColumnName="WbtrId" />
+                <ScalarProperty Name="TranNo" ColumnName="TranNo" />
+                <ScalarProperty Name="OrId" ColumnName="OrId" />
+                <ScalarProperty Name="BabyId" ColumnName="BabyId" />
+                <ScalarProperty Name="WatchType" ColumnName="WatchType" />
+                <ScalarProperty Name="StartTime" ColumnName="StartTime" />
+                <ScalarProperty Name="EndTime" ColumnName="EndTime" />
+                <ScalarProperty Name="TotalTime" ColumnName="TotalTime" />
+                <ScalarProperty Name="WatchAmount" ColumnName="WatchAmount" />
+                <ScalarProperty Name="CashBackAmount" ColumnName="CashBackAmount" />
+                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="ModifiedOn" ColumnName="ModifiedOn" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="WaveClock">
+            <EntityTypeMapping TypeName="billiardModel.WaveClock">
+              <MappingFragment StoreEntitySet="WaveClock">
+                <ScalarProperty Name="MerId" ColumnName="MerId" />
+                <ScalarProperty Name="CusName" ColumnName="CusName" />
+                <ScalarProperty Name="OrId" ColumnName="OrId" />
+                <ScalarProperty Name="StartTime" ColumnName="StartTime" />
+                <ScalarProperty Name="EndTime" ColumnName="EndTime" />
+                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="ModifiedOn" ColumnName="ModifiedOn" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="Amounts" ColumnName="Amounts" />
+                <ScalarProperty Name="TeBi" ColumnName="TeBi" />
+                <ScalarProperty Name="Gid" ColumnName="Gid" />
+                <ScalarProperty Name="ActualBillingTime" ColumnName="ActualBillingTime" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="true" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="无" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

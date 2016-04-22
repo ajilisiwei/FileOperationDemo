@@ -1,0 +1,71 @@
+﻿<Window x:Class="WEI_View.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="MainWindow" Height="360.87" Width="560.87" WindowState="Maximized">
+    <Grid Background="#FFD6D6D7">
+        <TabControl Margin="1,63,0,0">
+            <TabItem Header="商品" Width="100" Height="30">
+                <Grid>
+                    <Grid Background="#FFE5E5E5" Margin="0,0,0,26">
+                        <Label Content="条件：" HorizontalAlignment="Left" Height="36" Margin="23,10,0,0" VerticalAlignment="Top" Width="48"/>
+                        <Button Name="Btn_Reserach" Content="查询" HorizontalAlignment="Left" Height="22" Margin="288,10,0,0" VerticalAlignment="Top" Width="85" Click="Btn_Reserach_Click"/>
+                        <TextBox Name="TB_Condition" HorizontalAlignment="Left" Height="22" Margin="76,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="193"/>
+                        <DataGrid Name="DG_Goods"  Margin="5,42,5,4"  Background="Gray" IsReadOnly="True">
+                            <DataGrid.ColumnHeaderStyle>
+                                <Style TargetType="DataGridColumnHeader">
+                                    <Setter Property="HorizontalContentAlignment" Value="Center">
+                                    </Setter>
+                                </Style>
+                            </DataGrid.ColumnHeaderStyle>
+                            <DataGrid.Columns>
+                                <DataGridTextColumn Header="Goods Number" Binding="{Binding Number}" Width="150"></DataGridTextColumn>
+                                <DataGridTextColumn Header="Goods Name" Binding="{Binding Name}" Width="200"></DataGridTextColumn>
+                                <DataGridTextColumn Header="Inventory" Binding="{Binding Inventory}"></DataGridTextColumn>
+                            </DataGrid.Columns>
+                        </DataGrid>
+                    </Grid>
+                    <Grid>
+                        <Button Name="Btn_OutPutExcel" Content="导出Excel" HorizontalAlignment="Right" Height="22"  VerticalAlignment="Bottom" Width="85" Click="Btn_OutPutExcel_Click"></Button>
+                    </Grid>
+                </Grid>
+            </TabItem>
+            <TabItem Header="数据管理" Width="100" Height="30">
+                <Grid Background="#FFE5E5E5">
+                    <Button Name="Btn_BackUp" Content="备份数据库" HorizontalAlignment="Left" Height="22" Margin="445,95,0,0" VerticalAlignment="Top" Width="85" Click="Btn_BackUp_Click" ></Button>
+                    <Button Name="Btn_OpenPath" Content="浏览" Height="22" Margin="434,52,0,0" VerticalAlignment="Top" Width="85" Click="Btn_OpenPath_Click" HorizontalAlignment="Left" />
+                    <TextBox Name="TB_Path" Height="22" Margin="122,52,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="303" HorizontalAlignment="Left"/>
+                    <RadioButton Name="RB_DefaultPath" Content="默认目录" HorizontalAlignment="Left" Height="17" Margin="29,30,0,0" VerticalAlignment="Top" Width="114" Checked="RB_DefaultPath_Checked"/>
+                    <RadioButton Name="RB_CuatomPath" Content="自定义目录" HorizontalAlignment="Left" Height="17" Margin="29,55,0,0" VerticalAlignment="Top" Width="114" Checked="RB_CuatomPath_Checked"/>
+                    <GroupBox Header="备份目录" Height="82" Margin="10,6,0,0" Width="522" RenderTransformOrigin="0.492,0.413" VerticalAlignment="Top" HorizontalAlignment="Left"/>
+                </Grid>
+            </TabItem>
+            <TabItem Header="图片" Width="100" Height="30">
+                <Grid Background="#FFE5E5E5">
+                    <Label Content="条件：" HorizontalAlignment="Left" Height="36" Margin="23,10,0,0" VerticalAlignment="Top" Width="48"/>
+                    <Button Name="Btn_2" Content="查询" HorizontalAlignment="Left" Height="22" Margin="288,10,0,0" VerticalAlignment="Top" Width="85" Click="Btn_2_Click" />
+                    <TextBox Name="TB_2" HorizontalAlignment="Left" Height="22" Margin="76,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="193"/>
+                    <ScrollViewer Margin="23,46,76,20">
+                        <Grid MaxWidth="800">
+                            <StackPanel>
+                                <Image Name="Image_Contract" Margin="0,0,0,10" />
+                                <Image Name="Image_Contract2" />
+                            </StackPanel>
+                        </Grid>
+
+                        
+                    </ScrollViewer>
+                </Grid>
+            </TabItem>
+            <TabItem Header="文档" Width="100" Height="30" HorizontalAlignment="Left" Margin="0">
+                <Grid>
+                    <Button Name="Btn_OpenFile" Content="打开文档" Margin="10,10,0,0" Click="Btn_OpenFile_Click" Width="85" Height="22" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                    <Button Style="{StaticResource BtnEvenTrigger}" Margin="132,10,230,186">Open</Button>
+                    <Button Style="{StaticResource roundButton}" Margin="10,48,466,114">Open</Button>
+                </Grid>               
+            </TabItem>
+        </TabControl>
+
+
+
+    </Grid>
+</Window>

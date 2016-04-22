@@ -51,7 +51,6 @@ namespace WEI_View
             {
                 if (path == null) return false;
                 string strContent=string.Empty;
-                // 判断 bat文件是否存在，如果存在先把文件删除
                 if (System.IO.File.Exists(path))
                     System.IO.File.Delete(path);
                 File.WriteAllText(path, content, Encoding.Default); 
